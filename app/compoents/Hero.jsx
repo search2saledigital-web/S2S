@@ -1,5 +1,6 @@
 import React from "react";
 import { Check, Search, Infinity as InfinityIcon } from "lucide-react";
+import Image from "next/image";
 
 const FEATURES = [
   "Google Ads",
@@ -13,10 +14,22 @@ const FEATURES = [
 function GoogleIcon({ className }) {
   return (
     <svg viewBox="0 0 48 48" className={className}>
-      <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.5 6.1 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/>
-      <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.9 18.9 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.5 6.1 29.5 4 24 4c-7.6 0-14.1 4.3-17.7 10.7z"/>
-      <path fill="#4CAF50" d="M24 44c5.3 0 10.2-2 13.8-5.3l-6.4-5.4C29.3 34.9 26.8 36 24 36c-5.3 0-9.7-3.3-11.3-8l-6.6 5.1C9.8 39.6 16.4 44 24 44z"/>
-      <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4 5.5l6.4 5.4C39.5 37 44 31 44 24c0-1.3-.1-2.7-.4-3.5z"/>
+      <path
+        fill="#FFC107"
+        d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.5 6.1 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"
+      />
+      <path
+        fill="#FF3D00"
+        d="M6.3 14.7l6.6 4.8C14.6 15.9 18.9 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.5 6.1 29.5 4 24 4c-7.6 0-14.1 4.3-17.7 10.7z"
+      />
+      <path
+        fill="#4CAF50"
+        d="M24 44c5.3 0 10.2-2 13.8-5.3l-6.4-5.4C29.3 34.9 26.8 36 24 36c-5.3 0-9.7-3.3-11.3-8l-6.6 5.1C9.8 39.6 16.4 44 24 44z"
+      />
+      <path
+        fill="#1976D2"
+        d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4 5.5l6.4 5.4C39.5 37 44 31 44 24c0-1.3-.1-2.7-.4-3.5z"
+      />
     </svg>
   );
 }
@@ -68,13 +81,16 @@ export default function Hero() {
           </h1>
 
           <p className="mt-5 max-w-md text-slate-400">
-            We help businesses generate more leads, increase sales and
-            maximize ROI through result-driven digital marketing strategies.
+            We help businesses generate more leads, increase sales and maximize
+            ROI through result-driven digital marketing strategies.
           </p>
 
           <ul className="mt-7 grid max-w-md grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
             {FEATURES.map((feature) => (
-              <li key={feature} className="flex items-center gap-2.5 text-sm font-medium text-slate-100">
+              <li
+                key={feature}
+                className="flex items-center gap-2.5 text-sm font-medium text-slate-100"
+              >
                 <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-gradient-to-br from-orange-400 to-orange-500 ring-4 ring-orange-500/10">
                   <Check className="h-3 w-3 text-slate-950" strokeWidth={3} />
                 </span>
@@ -95,19 +111,33 @@ export default function Hero() {
           </div>
 
           <div className="mt-12 flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900 px-4 py-2.5">
-              <Search className="h-4 w-4 text-slate-400" />
-              <div className="leading-tight">
-                <p className="text-sm font-bold text-slate-100">Google</p>
-                <p className="text-[10px] font-medium text-slate-500">Partner</p>
+            <div className="flex flex-col items-center gap-2 rounded-lg border border-slate-800 bg-slate-900 px-2 py-2">
+              <div className="flex h-12 w-20 items-center justify-center">
+                <Image
+                  src="/google.png"
+                  alt="Google Partner"
+                  width={80}
+                  height={40}
+                  className="h-full w-full object-contain"
+                />
               </div>
+              <p className="text-[10px] font-medium text-white">Partner</p>
             </div>
-            <div className="flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900 px-4 py-2.5">
-              <InfinityIcon className="h-4 w-4 text-slate-400" />
-              <div className="leading-tight">
-                <p className="text-sm font-bold text-slate-100">Meta</p>
-                <p className="text-[10px] font-medium text-slate-500">Business Partner</p>
+
+            {/* Meta */}
+            <div className="flex flex-col items-center gap-2 rounded-lg border border-slate-800 bg-slate-900 px-2 py-2">
+              <div className="flex h-12 w-20 items-center justify-center">
+                <Image
+                  src="/meta.png"
+                  alt="Meta Partner"
+                  width={80}
+                  height={40}
+                  className="h-full w-full object-contain"
+                />
               </div>
+              <p className="text-[10px] font-medium text-white">
+                Business Partner
+              </p>
             </div>
           </div>
         </div>
@@ -128,21 +158,31 @@ export default function Hero() {
 
             {/* floating stat cards */}
             <div className="float-a absolute -left-4 top-2 rounded-xl border border-slate-800 bg-slate-900/90 px-4 py-2.5 shadow-xl shadow-black/50 backdrop-blur">
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">Total Users</p>
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                Total Users
+              </p>
               <p className="flex items-baseline gap-1.5 text-lg font-extrabold text-slate-50">
-                12,540 <span className="text-xs font-bold text-emerald-400">+12.5%</span>
+                12,540{" "}
+                <span className="text-xs font-bold text-emerald-400">
+                  +12.5%
+                </span>
               </p>
             </div>
 
             <div className="float-b absolute right-[-2rem] top-1/2 rounded-xl border border-slate-800 bg-slate-900/90 px-4 py-2.5 shadow-xl shadow-black/50 backdrop-blur">
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">Conversions</p>
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                Conversions
+              </p>
               <p className="text-lg font-extrabold text-slate-50">+35.6%</p>
             </div>
 
             <div className="float-a absolute bottom-0 left-4 rounded-xl border border-slate-800 bg-slate-900/90 px-4 py-2.5 shadow-xl shadow-black/50 backdrop-blur">
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">Leads</p>
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                Leads
+              </p>
               <p className="flex items-baseline gap-1.5 text-lg font-extrabold text-slate-50">
-                +285% <span className="text-xs font-bold text-emerald-400">+15%</span>
+                +285%{" "}
+                <span className="text-xs font-bold text-emerald-400">+15%</span>
               </p>
             </div>
 
@@ -158,27 +198,90 @@ export default function Hero() {
             </div>
 
             {/* target badge */}
-            <svg className="absolute -left-6 bottom-6 h-16 w-16 drop-shadow-xl" viewBox="0 0 80 80">
-              <circle cx="40" cy="40" r="36" className="fill-slate-900 stroke-slate-700" strokeWidth="2" />
+            <svg
+              className="absolute -left-6 bottom-6 h-16 w-16 drop-shadow-xl"
+              viewBox="0 0 80 80"
+            >
+              <circle
+                cx="40"
+                cy="40"
+                r="36"
+                className="fill-slate-900 stroke-slate-700"
+                strokeWidth="2"
+              />
               <circle cx="40" cy="40" r="28" fill="#f97316" />
               <circle cx="40" cy="40" r="20" className="fill-slate-900" />
               <circle cx="40" cy="40" r="12" fill="#3b82f6" />
               <circle cx="40" cy="40" r="4" fill="#f8fafc" />
-              <line x1="8" y1="72" x2="34" y2="46" stroke="#9a5b2a" strokeWidth="3" />
+              <line
+                x1="8"
+                y1="72"
+                x2="34"
+                y2="46"
+                stroke="#9a5b2a"
+                strokeWidth="3"
+              />
             </svg>
 
             {/* growth arrow */}
-            <svg className="absolute -top-8 right-8 h-12 w-20 opacity-90" viewBox="0 0 100 60">
-              <polyline points="2,55 25,30 42,42 70,10" fill="none" stroke="#f97316" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+            <svg
+              className="absolute -top-8 right-8 h-12 w-20 opacity-90"
+              viewBox="0 0 100 60"
+            >
+              <polyline
+                points="2,55 25,30 42,42 70,10"
+                fill="none"
+                stroke="#f97316"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
               <polygon points="70,10 55,12 68,25" fill="#f97316" />
             </svg>
 
             {/* donut chart badge */}
-            <svg className="absolute -bottom-2 left-1/3 h-12 w-12 rounded-full border border-slate-800 bg-slate-900 shadow-xl shadow-black/50" viewBox="0 0 36 36">
-              <circle cx="18" cy="18" r="15.9" fill="none" stroke="#1e293b" strokeWidth="4" />
-              <circle cx="18" cy="18" r="15.9" fill="none" stroke="#3b82f6" strokeWidth="4" strokeDasharray="45 55" strokeDashoffset="25" />
-              <circle cx="18" cy="18" r="15.9" fill="none" stroke="#f97316" strokeWidth="4" strokeDasharray="30 70" strokeDashoffset="-20" />
-              <circle cx="18" cy="18" r="15.9" fill="none" stroke="#34d399" strokeWidth="4" strokeDasharray="25 75" strokeDashoffset="-50" />
+            <svg
+              className="absolute -bottom-2 left-1/3 h-12 w-12 rounded-full border border-slate-800 bg-slate-900 shadow-xl shadow-black/50"
+              viewBox="0 0 36 36"
+            >
+              <circle
+                cx="18"
+                cy="18"
+                r="15.9"
+                fill="none"
+                stroke="#1e293b"
+                strokeWidth="4"
+              />
+              <circle
+                cx="18"
+                cy="18"
+                r="15.9"
+                fill="none"
+                stroke="#3b82f6"
+                strokeWidth="4"
+                strokeDasharray="45 55"
+                strokeDashoffset="25"
+              />
+              <circle
+                cx="18"
+                cy="18"
+                r="15.9"
+                fill="none"
+                stroke="#f97316"
+                strokeWidth="4"
+                strokeDasharray="30 70"
+                strokeDashoffset="-20"
+              />
+              <circle
+                cx="18"
+                cy="18"
+                r="15.9"
+                fill="none"
+                stroke="#34d399"
+                strokeWidth="4"
+                strokeDasharray="25 75"
+                strokeDashoffset="-50"
+              />
             </svg>
           </div>
         </div>

@@ -3,6 +3,9 @@ import Navbar from "./compoents/Navbar";
 import Hero from "./compoents/Hero";
 import About from "./compoents/About";
 import Service from "./compoents/Service";
+import Footer from "./compoents/Footer";
+import CTA from "./compoents/CTA";
+import Testimonials from "./compoents/Testimonial";
 
 export default function Home() {
   return (
@@ -11,6 +14,9 @@ export default function Home() {
     <Hero/>
     <Service/>
     <About/>
+    <Testimonials/>
+    <CTA/>
+    <Footer/>
     </>
   );
 }

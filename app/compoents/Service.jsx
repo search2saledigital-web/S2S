@@ -66,7 +66,7 @@ export default function Service() {
   const nextRef = useRef(null);
 
   return (
-    <section className="relative w-full overflow-hidden bg-slate-950 py-16 text-slate-50 lg:py-14">
+    <section className="relative w-full overflow-hidden bg-slate-950 py-6 text-slate-50 lg:py-14">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-24 left-1/4 h-[380px] w-[380px] rounded-full bg-blue-600/10 blur-3xl" />
         <div className="absolute -bottom-24 right-1/4 h-[320px] w-[320px] rounded-full bg-orange-500/10 blur-3xl" />
@@ -99,6 +99,7 @@ export default function Service() {
 
           <Swiper
             modules={[Navigation]}
+            loop={true}
             onBeforeInit={(swiper) => {
               swiper.params.navigation.prevEl = prevRef.current;
               swiper.params.navigation.nextEl = nextRef.current;
@@ -119,7 +120,7 @@ export default function Service() {
           >
             {SERVICES.map(({ icon: Icon, iconBg, title, desc }) => (
               <SwiperSlide key={title}>
-                <div className="flex h-full flex-col rounded-2xl border border-slate-800 bg-slate-900/70 p-6 transition hover:-translate-y-1 hover:border-slate-700 hover:shadow-xl hover:shadow-black/40">
+                <div className="flex h-35 md:h-50 flex-col rounded-2xl border border-slate-800 bg-slate-900/70 p-4 transition hover:-translate-y-1 hover:border-slate-700 hover:shadow-xl hover:shadow-black/40">
                   <div
                     className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${iconBg} shadow-lg shadow-black/30`}
                   >
