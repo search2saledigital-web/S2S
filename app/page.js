@@ -1,0 +1,16 @@
+import Image from "next/image";
+import Navbar from "./compoents/Navbar";
+import Hero from "./compoents/Hero";
+import About from "./compoents/About";
+import Service from "./compoents/Service";
+
+export default function Home() {
+  return (
+    <>
+    <Navbar/>
+    <Hero/>
+    <Service/>
+    <About/>
+    </>
+  );
+}
