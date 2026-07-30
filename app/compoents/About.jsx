@@ -65,20 +65,34 @@ export default function About() {
             results.
           </p>
 
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
-            {STATS.map(({ icon: Icon, value, label }) => (
-              <div
-                key={label}
-                className="rounded-xl border border-slate-800 bg-slate-900/70 p-4 text-center transition hover:-translate-y-1 hover:border-slate-700"
-              >
-                <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-slate-800">
-                  <Icon className="h-4 w-4 text-orange-400" />
-                </div>
-                <p className="text-lg font-extrabold text-slate-50 sm:text-xl">{value}</p>
-                <p className="mt-0.5 text-[11px] font-medium text-slate-500 sm:text-xs">{label}</p>
-              </div>
-            ))}
+           <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+      {STATS.map(({ icon: Icon, value, label }) => (
+        <div
+          key={label}
+          className="group relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/70 px-2 py-3 text-center
+            transition-all duration-300 hover:-translate-y-1.5 hover:border-orange-500/40
+            hover:shadow-[0_8px_30px_rgba(249,115,22,0.15)]"
+        >
+          {/* soft glow that appears on hover */}
+          <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_50%_0%,rgba(249,115,22,0.12),transparent_70%)]" />
+ 
+          {/* icon badge */}
+          <div className="relative mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-orange-500/20 to-orange-500/5 ring-1 ring-orange-500/20 transition-transform duration-300 group-hover:scale-110 group-hover:ring-orange-400/40">
+            <Icon className="h-5 w-5 text-orange-400" />
           </div>
+ 
+          <p className="relative bg-gradient-to-b from-slate-50 to-slate-300 bg-clip-text text-xl font-extrabold text-transparent sm:text-2xl">
+            {value}
+          </p>
+          <p className="relative mt-1 text-[11px] font-medium tracking-wide text-slate-500 sm:text-xs">
+            {label}
+          </p>
+ 
+          {/* bottom accent line */}
+          <span className="absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-orange-500 transition-all duration-300 group-hover:w-1/2" />
+        </div>
+      ))}
+    </div>
         </div>
       </div>
     </section>

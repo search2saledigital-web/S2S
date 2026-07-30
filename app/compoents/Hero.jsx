@@ -110,7 +110,7 @@ export default function Hero() {
             </button>
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center gap-4">
+          <div className="mt-12 flex flex-wrap justify-center md:justify-start items-center gap-4">
             <div className="flex flex-col items-center gap-2 rounded-lg border border-slate-800 bg-slate-900 px-2 py-2">
               <div className="flex h-12 w-20 items-center justify-center">
                 <Image
@@ -143,7 +143,7 @@ export default function Hero() {
         </div>
 
         {/* RIGHT: visual */}
-        <div className="relative mx-auto flex min-h-[580px] w-full max-w-md items-center justify-center lg:min-h-[460px]">
+        <div className="relative mx-auto flex min-h-[280px] w-full max-w-md items-center justify-center lg:min-h-[460px]">
           {/* laptop */}
           <div className="relative w-full">
             <div className="overflow-hidden rounded-2xl border-4 border-slate-800 bg-black shadow-2xl shadow-black/60">

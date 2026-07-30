@@ -109,9 +109,9 @@ export default function Service() {
               nextEl: nextRef.current,
             }}
             spaceBetween={16}
-            slidesPerView={1.15}
+            slidesPerView={2}
             breakpoints={{
-              480: { slidesPerView: 1.6, spaceBetween: 16 },
+              480: { slidesPerView: 2, spaceBetween: 16 },
               640: { slidesPerView: 2.2, spaceBetween: 18 },
               1024: { slidesPerView: 4, spaceBetween: 20 },
               1280: { slidesPerView: 4.5, spaceBetween: 20 },
@@ -120,7 +120,7 @@ export default function Service() {
           >
             {SERVICES.map(({ icon: Icon, iconBg, title, desc }) => (
               <SwiperSlide key={title}>
-                <div className="flex h-35 md:h-50 flex-col rounded-2xl border border-slate-800 bg-slate-900/70 p-4 transition hover:-translate-y-1 hover:border-slate-700 hover:shadow-xl hover:shadow-black/40">
+                <div className="flex h-55 md:h-50 flex-col rounded-2xl border border-slate-800 bg-slate-900/70 p-4 transition hover:-translate-y-1 hover:border-slate-700 hover:shadow-xl hover:shadow-black/40">
                   <div
                     className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${iconBg} shadow-lg shadow-black/30`}
                   >
