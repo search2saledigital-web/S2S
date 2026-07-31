@@ -1,12 +1,18 @@
 "use client";
+import Link from "next/link"; 
 import React, { useState } from "react";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [active, setActive] = useState("Products");
-
-  const navItems = ["Home", "Products", "Services", "Story", "Portfolio", "About"];
-
+const [active, setActive] = useState("Home");
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Products", href: "/products" },
+  { label: "Services", href: "/services" },
+  { label: "Story", href: "/story" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "About", href: "/about" },
+];
   return (
     <div className="sticky top-0 z-50 flex items-center justify-between bg-[#020618] px-4 py-4 md:px-8 lg:px-16 xl:px-32">
       {/* Logo - outside the pill, far left */}
@@ -23,8 +29,9 @@ const Navbar = () => {
           before:bg-gradient-to-b before:from-white/10 before:to-transparent before:opacity-60"
       >
         <div className="relative z-10 flex items-center gap-1">
-          {navItems.map((item) => (
-            <button
+        {navItems.map((item) => (
+            <Link 
+             href={item.href}
               key={item}
               onClick={() => setActive(item)}
               className={`px-4 py-1.5 rounded-full text-sm transition-all duration-300
@@ -34,8 +41,8 @@ const Navbar = () => {
                     : "text-zinc-300 hover:text-white hover:bg-white/10"
                 }`}
             >
-              {item}
-            </button>
+              {item.label}
+            </Link>
           ))}
         </div>
       </nav>

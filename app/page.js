@@ -11,7 +11,6 @@ import Faq from "./compoents/Faq";
 export default function Home() {
   return (
     <>
-    <Navbar/>
     <Hero/>
     <Service/>
     <About/>
@@ -19,7 +18,6 @@ export default function Home() {
     <Faq/>
     <CTA/>
 
-    <Footer/>
     </>
   );
 }
