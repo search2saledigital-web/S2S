@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 
@@ -21,7 +22,7 @@ const Navbar = () => {
     { label: "Web Development", href: "/services/web-dev" },
     { label: "Social Media Marketing", href: "/services/ui-ux" },
     { label: "Content and Creative", href: "/services/ui-ux" },
-    { label: "Paid Marketing", href: "/services/ui-ux" },
+    { label: "Paid Marketing", href: "/services/paid-marketing" },
       { label: "Branding", href: "/services/branding" },
   ];
 
@@ -40,12 +41,11 @@ const handleMouseLeave = () => {
 };
 
   return (
+    <section className="w-full mx-auto max-w-7xl">
     <div  className="sticky top-0 z-50 flex items-center justify-between bg-[#020618] px-4 py-4 md:px-8 lg:px-16 xl:px-32">
       
       {/* Logo */}
-      <Link href="/" className="text-white font-semibold text-lg tracking-wide">
-        S2s
-      </Link>
+      <Image src="/logo.png" width={100} height={100} className=" h-20 w-30 object-cover"/>
 
       {/* Desktop Menu */}
       <nav className="relative hidden md:flex items-center px-1 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
@@ -185,6 +185,7 @@ onMouseLeave={handleMouseLeave}
         </div>
       )}
     </div>
+    </section>
   );
 };
 

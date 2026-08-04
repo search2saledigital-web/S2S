@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { IoArrowForward } from "react-icons/io5";
+import Image from "next/image";
 
 const footerLinks = {
   Services: [
@@ -45,12 +46,8 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 sm:col-span-2 lg:col-span-2">
             <div className="flex items-center gap-2">
-              <span className="flex h-9 w-9 items-center justify-center rounded-md bg-gradient-to-br from-orange-500 to-pink-500 text-lg font-bold text-white">
-                S2
-              </span>
-              <span className="text-lg font-semibold text-white">
-                Search 2sale digital
-              </span>
+                   <Image src="/logo.png" width={100} height={100} className=" h-20 w-30 object-cover"/>
+             
             </div>
 
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
