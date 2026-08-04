@@ -41,7 +41,7 @@ const handleMouseLeave = () => {
 };
 
   return (
-    <section className="w-full mx-auto max-w-7xl">
+    <section className="w-full mx-auto max-w-7xl bg-[#020618]">
     <div  className="sticky top-0 z-50 flex items-center justify-between bg-[#020618] px-4 py-4 md:px-8 lg:px-16 xl:px-32">
       
       {/* Logo */}
