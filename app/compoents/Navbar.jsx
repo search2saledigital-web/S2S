@@ -20,8 +20,8 @@ const Navbar = () => {
   const servicesDropdown = [
     { label: "SEO Servies", href: "/services/seo" },
     { label: "Web Development", href: "/services/web-dev" },
-    { label: "Social Media Marketing", href: "/services/ui-ux" },
-    { label: "Content and Creative", href: "/services/ui-ux" },
+    { label: "Social Media Marketing", href: "/services/social-media-marketing" },
+    { label: "Content and Creative", href: "/services/content-creative" },
     { label: "Paid Marketing", href: "/services/paid-marketing" },
       { label: "Branding", href: "/services/branding" },
   ];
