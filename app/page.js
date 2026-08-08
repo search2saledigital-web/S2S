@@ -7,6 +7,7 @@ import Footer from "./compoents/Footer";
 import CTA from "./compoents/CTA";
 import Testimonials from "./compoents/Testimonial";
 import Faq from "./compoents/Faq";
+import WhyChooseAndProcess from "./compoents/WhyChooseAndProcess";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
     <Hero/>
     <Service/>
     <About/>
+    <WhyChooseAndProcess/>
     <Testimonials/>
     <Faq/>
     <CTA/>

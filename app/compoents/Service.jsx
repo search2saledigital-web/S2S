@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useRef } from "react";
 import { Swiper, SlideItem, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -18,46 +18,52 @@ import {
 
 const SERVICES = [
   {
-    icon: Rocket,
-    iconBg: "from-orange-400 to-orange-600",
-    title: "Google Ads Management",
-    desc: "Drive targeted traffic and get more conversions.",
-  },
-  {
-    icon: Share2,
-    iconBg: "from-blue-400 to-blue-600",
-    title: "Meta Ads (Facebook & Instagram)",
-    desc: "Reach the right audience and scale your business faster.",
-  },
-  {
     icon: Search,
-    iconBg: "from-slate-500 to-slate-700",
-    title: "SEO Services",
-    desc: "Improve rankings and get found by the right customers.",
+    iconBg: "from-green-400 to-green-600",
+    title: "Search Engine Optimization (SEO)",
+    desc: "Boost Google rankings, drive organic traffic, and grow your business with proven SEO strategies.",
   },
   {
     icon: Code2,
     iconBg: "from-indigo-400 to-indigo-600",
     title: "Website Design & Development",
-    desc: "Build fast, responsive & high-converting websites.",
+    desc: "Modern, fast, and responsive websites designed to convert visitors into customers.",
+  },
+  {
+    icon: Megaphone,
+    iconBg: "from-pink-400 to-pink-600",
+    title: "Social Media Marketing",
+    desc: "Increase brand awareness and engagement with targeted campaigns on Facebook, Instagram, and LinkedIn.",
+  },
+  {
+    icon: Rocket,
+    iconBg: "from-orange-400 to-orange-600",
+    title: "Google Ads (PPC)",
+    desc: "Get instant traffic and high-quality leads with ROI-focused Google Ads campaigns.",
+  },
+  {
+    icon: Share2,
+    iconBg: "from-blue-400 to-blue-600",
+    title: "Meta Ads (Facebook & Instagram)",
+    desc: "Reach your ideal audience and boost sales with highly targeted Meta advertising.",
   },
   {
     icon: LayoutTemplate,
     iconBg: "from-cyan-400 to-cyan-600",
-    title: "Landing Page Design",
-    desc: "High-converting landing pages that turn visitors into leads.",
+    title: "Content Marketing",
+    desc: "Attract and convert customers with high-quality content that builds authority and trust.",
   },
   {
-    icon: Megaphone,
-    iconBg: "from-orange-400 to-pink-500",
-    title: "Social Media Marketing",
-    desc: "Build brand awareness and engage your audience.",
+    icon: LayoutTemplate,
+    iconBg: "from-purple-400 to-purple-600",
+    title: "Graphic Design & Branding",
+    desc: "Professional logos, creatives, and branding solutions to make your business stand out.",
   },
   {
     icon: MapPinned,
     iconBg: "from-emerald-400 to-emerald-600",
-    title: "Google Business Profile Optimization",
-    desc: "Improve your local visibility and get more customers.",
+    title: "Local SEO & Google Business",
+    desc: "Improve local visibility and get more customers with optimized Google Business Profile.",
   },
 ];
 
@@ -74,7 +80,7 @@ export default function Service() {
 
       <div className="relative mx-auto max-w-6xl px-6 lg:px-10">
         <h2 className="text-center text-2xl font-extrabold tracking-tight sm:text-3xl">
-          Our{" "}
+          Digital Marketing{" "}
           <span className="bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent">
             Services
           </span>
@@ -120,7 +126,7 @@ export default function Service() {
           >
             {SERVICES.map(({ icon: Icon, iconBg, title, desc }) => (
               <SwiperSlide key={title}>
-                <div className="flex h-55 md:h-50 flex-col rounded-2xl border border-slate-800 bg-slate-900/70 p-4 transition hover:-translate-y-1 hover:border-slate-700 hover:shadow-xl hover:shadow-black/40">
+                <div className="flex h-60 md:h-60 flex-col rounded-2xl border border-slate-800 bg-slate-900/70 p-4 transition hover:-translate-y-1 hover:border-slate-700 hover:shadow-xl hover:shadow-black/40">
                   <div
                     className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${iconBg} shadow-lg shadow-black/30`}
                   >

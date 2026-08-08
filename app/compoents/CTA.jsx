@@ -3,7 +3,8 @@ import { FiArrowRight } from "react-icons/fi";
 
 export default function CTA() {
   return (
-    <section className="relative overflow-hidden  bg-gradient-to-r from-[#0a1128] via-[#12224f] to-[#1a3a8f] px-6 py-6  md:py-10 sm:px-10 ">
+    <div className=" w-full bg-gradient-to-r from-[#0a1128] via-[#12224f] to-[#1a3a8f]">
+    <section className="relative overflow-hidden max-w-7xl mx-auto bg-gradient-to-r from-[#0a1128] via-[#12224f] to-[#1a3a8f] px-6 py-6  md:py-10 sm:px-10 ">
       {/* subtle background glow */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(59,130,246,0.25),transparent_60%)]" />
 
@@ -15,7 +16,8 @@ export default function CTA() {
             <span className="text-orange-400">Grow Your Business?</span>
           </h2>
           <p className="mt-3 text-center md:text-start text-sm text-slate-300 sm:text-base">
-            Let&apos;s create a powerful digital strategy that drives real results.
+            Let&apos;s your ideas into measurable results. Whether you need a new website, better search rankings, or more qualified leads, Search2SaleDigital is here to help.
+
           </p>
         </div>
 
@@ -33,5 +35,6 @@ export default function CTA() {
         </div>
       </div>
     </section>
+    </div>
   );
 }

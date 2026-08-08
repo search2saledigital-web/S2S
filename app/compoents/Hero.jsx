@@ -74,15 +74,28 @@ export default function Hero() {
             Grow Your Business with
           </h2>
           <h1 className="mt-1 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-            <span className="block text-blue-400">Performance Digital</span>
-            <span className="block bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent">
-              Marketing
-            </span>
+            <span className="block whitespace-nowrap text-blue-400">Search2Sale  <span className=" bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent">
+              Digital
+            </span></span>
+            
           </h1>
 
+          <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-orange-400">
+            Your Trusted Digital Marketing Partner
+          </p>
+
           <p className="mt-5 max-w-md text-slate-400">
-            We help businesses generate more leads, increase sales and maximize
-            ROI through result-driven digital marketing strategies.
+            At Search2SaleDigital (S2S Digital), we help businesses build a
+            powerful online presence and achieve measurable growth. From
+            creating stunning websites to running high-converting digital
+            marketing campaigns, our team delivers customized solutions that
+            drive traffic, generate quality leads, and increase sales.
+          </p>
+
+          <p className="mt-3 max-w-md text-slate-400">
+            Whether you&apos;re a startup, local business, or established
+            brand, we provide data-driven strategies that help you stay ahead
+            of the competition.
           </p>
 
           <ul className="mt-7 grid max-w-md grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
