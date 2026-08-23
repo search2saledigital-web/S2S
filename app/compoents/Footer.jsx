@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import {
   FaFacebookF,
@@ -9,6 +10,7 @@ import {
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { IoArrowForward } from "react-icons/io5";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const footerLinks = {
   Services: [
@@ -38,16 +40,19 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+  const adminLayout = pathname.startsWith("/admin")
+  if (adminLayout) return null;
   return (
     <footer className="bg-[#0b1220] text-slate-300">
       <div className="mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:px-10">
         <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-          
+
           {/* Brand */}
           <div className="col-span-2 sm:col-span-2 lg:col-span-2">
             <div className="flex items-center gap-2">
-                   <Image src="/logo.png" width={100} height={100} className=" h-20 w-30 object-cover"/>
-             
+              <Image src="/logo.png" width={100} height={100} className=" h-20 w-30 object-cover" />
+
             </div>
 
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
