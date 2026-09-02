@@ -56,8 +56,7 @@ export default function Footer() {
             </div>
 
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
-              We help businesses grow online with result-driven digital
-              marketing strategies that deliver measurable results.
+              Search2Sale Digital works with businesses looking to strengthen their online presence and generate more customers through digital marketing
             </p>
 
             {/* Social Icons */}
@@ -98,23 +97,26 @@ export default function Footer() {
           <div className="col-span-2 sm:col-span-1">
             <h3 className="text-sm font-semibold text-white">Contact Us</h3>
             <ul className="mt-4 space-y-3 text-sm text-slate-400">
-              <li className="flex items-start gap-2">
-                <FaPhoneAlt
-                  size={16}
-                  className="mt-0.5 shrink-0 text-orange-400"
-                />
-                <span>+91 98765 43210</span>
-              </li>
+             <a href="tel:+918506938033" className="flex items-start gap-2">
+  <FaPhoneAlt
+    size={16}
+    className="mt-0.5 shrink-0 text-orange-400"
+  />
+  <span>+91 85069 38033</span>
+</a>
 
-              <li className="flex items-start gap-2">
-                <MdEmail
-                  size={16}
-                  className="mt-0.5 shrink-0 text-orange-400"
-                />
-                <span className="break-all">
-                  info@search2saledigital.com
-                </span>
-              </li>
+                <a
+  href="mailto:info@search2saledigital.com"
+  className="flex items-start gap-2 transition-colors hover:text-orange-400"
+>
+  <MdEmail
+    size={16}
+    className="mt-0.5 shrink-0 text-orange-400"
+  />
+  <span className="break-all">
+    info@search2saledigital.com
+  </span>
+</a>
 
               <li className="flex items-start gap-2">
                 <MdLocationOn
@@ -122,7 +124,7 @@ export default function Footer() {
                   className="mt-0.5 shrink-0 text-orange-400"
                 />
                 <span>
-                  B-45, Sector 63, Noida, Uttar Pradesh, India
+                  Ground Floor, Nanesh Enclave, House No. A-82/C, Kh. No. 36/9, Street No. 1, Jain Colony, Delhi, 110042
                 </span>
               </li>
             </ul>

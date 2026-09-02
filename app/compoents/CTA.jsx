@@ -11,12 +11,12 @@ export default function CTA() {
       <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
         {/* Text content */}
         <div className="max-w-xl">
-          <h2 className="text-2xl font-bold text-center leading-tight text-white sm:text-3xl md:text-4xl">
+          <h2 className="text-2xl font-bold text-center leading-tight text-white sm:text-3xl md:text-3xl">
             Ready to{" "}
-            <span className="text-orange-400">Grow Your Business?</span>
+            <span className="text-orange-400">Grow Your Business Online ?</span>
           </h2>
           <p className="mt-3 text-center md:text-start text-sm text-slate-300 sm:text-base">
-            Let&apos;s your ideas into measurable results. Whether you need a new website, better search rankings, or more qualified leads, Search2SaleDigital is here to help.
+          Partner with Search2Sale Digital, a trusted digital marketing agency in Delhi, and take your business to the next level with powerful, customized digital marketing solutions.
 
           </p>
         </div>

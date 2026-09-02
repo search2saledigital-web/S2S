@@ -29,13 +29,13 @@ export default function About() {
           <span className="absolute -left-4 top-1/2 h-2 w-2 rounded-full bg-blue-300" />
 
           <div className="relative overflow-hidden rounded-2xl border border-slate-800 shadow-2xl shadow-black/50">
-           <Image
-  src="/images/about.jpg"
-  alt="Search2Sale Digital team meeting"
-  width={1000}
-  height={600}
-  className=" h-90 w-150 object-cover"
-/>
+            <Image
+              src="/images/about.jpg"
+              alt="Search2Sale Digital team meeting"
+              width={1000}
+              height={600}
+              className=" h-90 w-150 object-cover"
+            />
             {/* logo badge overlay, like the reference */}
             <div className="absolute right-4 top-4 flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-900/90 px-3 py-1.5 backdrop-blur">
               <div className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-blue-500 to-orange-500 text-xs font-black text-white">
@@ -51,48 +51,49 @@ export default function About() {
         {/* RIGHT: content */}
         <div>
           <h2 className="text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl lg:text-4xl">
-            About{" "}
-            <span className="text-blue-400">Search2Sale</span>
+            Helping Businesses <br />
+            <span className="text-blue-400"> Grow </span>
             <span className="bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent">
-              Digital
+              Across Delhi
             </span>
           </h2>
 
           <p className="mt-4 max-w-lg text-sm leading-relaxed text-slate-400 sm:text-base">
-            Search2Sale Digital is a result-oriented digital marketing agency
-            dedicated to helping businesses grow online. We combine
-            creativity, strategy, and technology to deliver measurable
-            results.
+            Search2Sale Digital works with businesses looking to strengthen
+            their online presence and generate more customers through digital
+            marketing. From local businesses in Delhi to growing companies
+            targeting customers across India, we develop digital strategies that
+            help brands compete and grow in today's online marketplace.
           </p>
 
-           <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
-      {STATS.map(({ icon: Icon, value, label }) => (
-        <div
-          key={label}
-          className="group relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/70 px-2 py-3 text-center
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+            {STATS.map(({ icon: Icon, value, label }) => (
+              <div
+                key={label}
+                className="group relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/70 px-2 py-3 text-center
             transition-all duration-300 hover:-translate-y-1.5 hover:border-orange-500/40
             hover:shadow-[0_8px_30px_rgba(249,115,22,0.15)]"
-        >
-          {/* soft glow that appears on hover */}
-          <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_50%_0%,rgba(249,115,22,0.12),transparent_70%)]" />
- 
-          {/* icon badge */}
-          <div className="relative mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-orange-500/20 to-orange-500/5 ring-1 ring-orange-500/20 transition-transform duration-300 group-hover:scale-110 group-hover:ring-orange-400/40">
-            <Icon className="h-5 w-5 text-orange-400" />
+              >
+                {/* soft glow that appears on hover */}
+                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_50%_0%,rgba(249,115,22,0.12),transparent_70%)]" />
+
+                {/* icon badge */}
+                <div className="relative mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-orange-500/20 to-orange-500/5 ring-1 ring-orange-500/20 transition-transform duration-300 group-hover:scale-110 group-hover:ring-orange-400/40">
+                  <Icon className="h-5 w-5 text-orange-400" />
+                </div>
+
+                <p className="relative bg-gradient-to-b from-slate-50 to-slate-300 bg-clip-text text-xl font-extrabold text-transparent sm:text-2xl">
+                  {value}
+                </p>
+                <p className="relative mt-1 text-[11px] font-medium tracking-wide text-slate-500 sm:text-xs">
+                  {label}
+                </p>
+
+                {/* bottom accent line */}
+                <span className="absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-orange-500 transition-all duration-300 group-hover:w-1/2" />
+              </div>
+            ))}
           </div>
- 
-          <p className="relative bg-gradient-to-b from-slate-50 to-slate-300 bg-clip-text text-xl font-extrabold text-transparent sm:text-2xl">
-            {value}
-          </p>
-          <p className="relative mt-1 text-[11px] font-medium tracking-wide text-slate-500 sm:text-xs">
-            {label}
-          </p>
- 
-          {/* bottom accent line */}
-          <span className="absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-orange-500 transition-all duration-300 group-hover:w-1/2" />
-        </div>
-      ))}
-    </div>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Check, Search, Infinity as InfinityIcon } from "lucide-react";
+import { Check } from "lucide-react";
 import Image from "next/image";
 
 const FEATURES = [
@@ -52,80 +52,109 @@ function InstagramIcon({ className }) {
 
 export default function Hero() {
   return (
-    <div className="min-h-screen w-full bg-slate-950 text-slate-50 relative overflow-hidden">
-      {/* keyframes for the floating badges */}
+    <section className="relative min-h-screen w-full overflow-hidden bg-slate-950 text-slate-50">
+      {/* Floating animations */}
       <style>{`
-        @keyframes floatA { 0%,100% { transform: translateY(0px);} 50% { transform: translateY(-10px);} }
-        @keyframes floatB { 0%,100% { transform: translateY(0px);} 50% { transform: translateY(10px);} }
-        .float-a { animation: floatA 6s ease-in-out infinite; }
-        .float-b { animation: floatB 6.5s ease-in-out infinite; }
+        @keyframes floatA {
+          0%,100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+
+        @keyframes floatB {
+          0%,100% { transform: translateY(0px); }
+          50% { transform: translateY(10px); }
+        }
+
+        .float-a {
+          animation: floatA 6s ease-in-out infinite;
+        }
+
+        .float-b {
+          animation: floatB 6.5s ease-in-out infinite;
+        }
       `}</style>
 
-      {/* ambient glow */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-20 right-0 h-[520px] w-[520px] rounded-full bg-blue-600/20 blur-3xl" />
-        <div className="absolute bottom-0 right-40 h-[380px] w-[380px] rounded-full bg-orange-500/10 blur-3xl" />
+      {/* Ambient glow */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -right-32 -top-20 h-[350px] w-[350px] rounded-full bg-blue-600/20 blur-3xl sm:h-[450px] sm:w-[450px] lg:h-[520px] lg:w-[520px]" />
+
+        <div className="absolute -bottom-20 right-0 h-[280px] w-[280px] rounded-full bg-orange-500/10 blur-3xl sm:h-[380px] sm:w-[380px] lg:right-40" />
       </div>
 
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 py-16 lg:grid-cols-2 lg:gap-10 lg:px-10 lg:py-14">
-        {/* LEFT: content */}
-        <div>
-          <h2 className="text-2xl font-semibold text-slate-100 sm:text-3xl">
-            Grow Your Business with
-          </h2>
-          <h1 className="mt-1 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-            <span className="block whitespace-nowrap text-blue-400">Search2Sale  <span className=" bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent">
-              Digital
-            </span></span>
-            
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-12 sm:px-6 sm:py-16 md:gap-14 lg:grid-cols-2 lg:gap-10 lg:px-10 lg:py-14 xl:px-16">
+        {/* ================= LEFT CONTENT ================= */}
+        <div className="w-full">
+          <h1 className="text-xl font-semibold leading-snug text-slate-100 sm:text-2xl md:text-3xl">
+            Best Digital Marketing Agency in Delhi
           </h1>
 
-          <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-orange-400">
-            Your Trusted Digital Marketing Partner
+          <h2 className="mt-2 text-3xl  font-extrabold leading-[1.15] tracking-tight sm:text-4xl md:text-5xl lg:text-5xl">
+            <span className="block bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent">
+              Grow Your Business Online
+            </span>
+
+            <span className="mt-1 block text-blue-400">
+              with Search2Sale Digital
+            </span>
+          </h2>
+
+          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.08em] text-orange-400 sm:text-sm">
+            Get More Visibility. Generate More Leads. Grow More Sales.
           </p>
 
-          <p className="mt-5 max-w-md text-slate-400">
-            At Search2SaleDigital (S2S Digital), we help businesses build a
-            powerful online presence and achieve measurable growth. From
-            creating stunning websites to running high-converting digital
-            marketing campaigns, our team delivers customized solutions that
-            drive traffic, generate quality leads, and increase sales.
+          <p className="mt-5 max-w-2xl text-sm leading-6 text-slate-400 sm:text-base">
+            At Search2Sale Digital, we help businesses build a powerful
+            digital presence through effective{" "}
+            <strong className="text-slate-300">
+              SEO, Google Business Profile optimization, website development,
+              social media marketing, Google Ads, content marketing, and
+              complete digital marketing solutions.
+            </strong>
           </p>
 
-          <p className="mt-3 max-w-md text-slate-400">
-            Whether you&apos;re a startup, local business, or established
-            brand, we provide data-driven strategies that help you stay ahead
-            of the competition.
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-400 sm:text-base">
+            Whether you are a startup, local business, service provider, or
+            established brand, our team creates strategies based on your
+            business goals and target audience.
           </p>
 
-          <ul className="mt-7 grid max-w-md grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
+          {/* Features */}
+          <ul className="mt-7 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
             {FEATURES.map((feature) => (
               <li
                 key={feature}
                 className="flex items-center gap-2.5 text-sm font-medium text-slate-100"
               >
                 <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-gradient-to-br from-orange-400 to-orange-500 ring-4 ring-orange-500/10">
-                  <Check className="h-3 w-3 text-slate-950" strokeWidth={3} />
+                  <Check
+                    className="h-3 w-3 text-slate-950"
+                    strokeWidth={3}
+                  />
                 </span>
-                {feature}
+
+                <span>{feature}</span>
               </li>
             ))}
           </ul>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <button className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-br from-orange-400 to-orange-500 px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-lg shadow-orange-500/25 transition hover:-translate-y-0.5 hover:shadow-orange-500/40">
+          {/* Buttons */}
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
+            <button className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-br from-orange-400 to-orange-500 px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-lg shadow-orange-500/25 transition hover:-translate-y-0.5 hover:shadow-orange-500/40 sm:w-auto">
               Get Free Audit
               <span aria-hidden>→</span>
             </button>
-            <button className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 bg-transparent px-6 py-3.5 text-sm font-semibold text-slate-100 transition hover:-translate-y-0.5 hover:bg-slate-900">
+
+            <button className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-slate-700 bg-transparent px-6 py-3.5 text-sm font-semibold text-slate-100 transition hover:-translate-y-0.5 hover:bg-slate-900 sm:w-auto">
               Book Consultation
               <span aria-hidden>+</span>
             </button>
           </div>
 
-          <div className="mt-12 flex flex-wrap justify-center md:justify-start items-center gap-4">
-            <div className="flex flex-col items-center gap-2 rounded-lg border border-slate-800 bg-slate-900 px-2 py-2">
-              <div className="flex h-12 w-20 items-center justify-center">
+          {/* Partners */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:mt-12 sm:justify-start sm:gap-4">
+            {/* Google */}
+            <div className="flex flex-col items-center gap-1.5 rounded-lg border border-slate-800 bg-slate-900 px-2 py-2">
+              <div className="flex h-10 w-16 items-center justify-center sm:h-12 sm:w-20">
                 <Image
                   src="/google.png"
                   alt="Google Partner"
@@ -134,12 +163,15 @@ export default function Hero() {
                   className="h-full w-full object-contain"
                 />
               </div>
-              <p className="text-[10px] font-medium text-white">Partner</p>
+
+              <p className="text-[10px] font-medium text-white">
+                Partner
+              </p>
             </div>
 
             {/* Meta */}
-            <div className="flex flex-col items-center gap-2 rounded-lg border border-slate-800 bg-slate-900 px-2 py-2">
-              <div className="flex h-12 w-20 items-center justify-center">
+            <div className="flex flex-col items-center gap-1.5 rounded-lg border border-slate-800 bg-slate-900 px-2 py-2">
+              <div className="flex h-10 w-16 items-center justify-center sm:h-12 sm:w-20">
                 <Image
                   src="/meta.png"
                   alt="Meta Partner"
@@ -148,6 +180,7 @@ export default function Hero() {
                   className="h-full w-full object-contain"
                 />
               </div>
+
               <p className="text-[10px] font-medium text-white">
                 Business Partner
               </p>
@@ -155,64 +188,86 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* RIGHT: visual */}
-        <div className="relative mx-auto flex min-h-[280px] w-full max-w-md items-center justify-center lg:min-h-[460px]">
-          {/* laptop */}
+        {/* ================= RIGHT VISUAL ================= */}
+        <div className="relative mx-auto flex min-h-[300px] w-full max-w-[320px] items-center justify-center sm:min-h-[380px] sm:max-w-md lg:min-h-[460px] lg:max-w-lg">
+          {/* Laptop */}
           <div className="relative w-full">
-            <div className="overflow-hidden rounded-2xl border-4 border-slate-800 bg-black shadow-2xl shadow-black/60">
+            <div className="overflow-hidden rounded-xl border-2 border-slate-800 bg-black shadow-2xl shadow-black/60 sm:rounded-2xl sm:border-4">
               <img
                 src="/images/hero.jpg"
                 alt="Analytics dashboard demo"
-                className="block w-full opacity-90"
+                className="block w-full object-cover opacity-90"
               />
             </div>
-            <div className="mx-1 h-3.5 rounded-b-xl bg-gradient-to-b from-slate-700 to-slate-900 shadow-lg" />
-            <div className="mx-auto h-2 w-1/3 rounded-b-md bg-slate-950" />
 
-            {/* floating stat cards */}
-            <div className="float-a absolute -left-4 top-2 rounded-xl border border-slate-800 bg-slate-900/90 px-4 py-2.5 shadow-xl shadow-black/50 backdrop-blur">
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+            {/* Laptop base */}
+            <div className="mx-1 h-2.5 rounded-b-xl bg-gradient-to-b from-slate-700 to-slate-900 shadow-lg sm:h-3.5" />
+            <div className="mx-auto h-1.5 w-1/3 rounded-b-md bg-slate-950 sm:h-2" />
+
+            {/* ================= FLOATING CARDS ================= */}
+
+            {/* Total Users */}
+            <div className="float-a absolute -left-3 top-1 rounded-lg border border-slate-800 bg-slate-900/95 px-2.5 py-2 shadow-xl shadow-black/50 backdrop-blur sm:-left-5 sm:top-2 sm:rounded-xl sm:px-4 sm:py-2.5">
+              <p className="text-[8px] font-semibold uppercase tracking-wide text-slate-500 sm:text-[10px]">
                 Total Users
               </p>
-              <p className="flex items-baseline gap-1.5 text-lg font-extrabold text-slate-50">
-                12,540{" "}
-                <span className="text-xs font-bold text-emerald-400">
+
+              <p className="flex items-baseline gap-1 text-sm font-extrabold text-slate-50 sm:gap-1.5 sm:text-lg">
+                12,540
+
+                <span className="text-[9px] font-bold text-emerald-400 sm:text-xs">
                   +12.5%
                 </span>
               </p>
             </div>
 
-            <div className="float-b absolute right-[-2rem] top-1/2 rounded-xl border border-slate-800 bg-slate-900/90 px-4 py-2.5 shadow-xl shadow-black/50 backdrop-blur">
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+            {/* Conversions */}
+            <div className="float-b absolute -right-3 top-1/2 rounded-lg border border-slate-800 bg-slate-900/95 px-2.5 py-2 shadow-xl shadow-black/50 backdrop-blur sm:-right-7 sm:rounded-xl sm:px-4 sm:py-2.5">
+              <p className="text-[8px] font-semibold uppercase tracking-wide text-slate-500 sm:text-[10px]">
                 Conversions
               </p>
-              <p className="text-lg font-extrabold text-slate-50">+35.6%</p>
+
+              <p className="text-sm font-extrabold text-slate-50 sm:text-lg">
+                +35.6%
+              </p>
             </div>
 
-            <div className="float-a absolute bottom-0 left-4 rounded-xl border border-slate-800 bg-slate-900/90 px-4 py-2.5 shadow-xl shadow-black/50 backdrop-blur">
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+            {/* Leads */}
+            <div className="float-a absolute bottom-0 left-2 rounded-lg border border-slate-800 bg-slate-900/95 px-2.5 py-2 shadow-xl shadow-black/50 backdrop-blur sm:left-4 sm:rounded-xl sm:px-4 sm:py-2.5">
+              <p className="text-[8px] font-semibold uppercase tracking-wide text-slate-500 sm:text-[10px]">
                 Leads
               </p>
-              <p className="flex items-baseline gap-1.5 text-lg font-extrabold text-slate-50">
-                +285%{" "}
-                <span className="text-xs font-bold text-emerald-400">+15%</span>
+
+              <p className="flex items-baseline gap-1 text-sm font-extrabold text-slate-50 sm:gap-1.5 sm:text-lg">
+                +285%
+
+                <span className="text-[9px] font-bold text-emerald-400 sm:text-xs">
+                  +15%
+                </span>
               </p>
             </div>
 
-            {/* social icon badges */}
-            <div className="float-b absolute -top-4 left-1/4 flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-800 bg-slate-900 shadow-xl shadow-black/50">
-              <GoogleIcon className="h-6 w-6" />
-            </div>
-            <div className="float-a absolute right-0 top-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 shadow-xl shadow-black/50">
-              <FacebookIcon className="h-5 w-5" />
-            </div>
-            <div className="float-b absolute -right-2 bottom-16 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-orange-400 via-pink-500 to-purple-600 shadow-xl shadow-black/50">
-              <InstagramIcon className="h-5 w-5" />
+            {/* ================= SOCIAL BADGES ================= */}
+
+            {/* Google */}
+            <div className="float-b absolute -top-3 left-1/4 flex h-9 w-9 items-center justify-center rounded-xl border border-slate-800 bg-slate-900 shadow-xl shadow-black/50 sm:-top-4 sm:h-12 sm:w-12 sm:rounded-2xl">
+              <GoogleIcon className="h-5 w-5 sm:h-6 sm:w-6" />
             </div>
 
-            {/* target badge */}
+            {/* Facebook */}
+            <div className="float-a absolute right-0 top-3 flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600 shadow-xl shadow-black/50 sm:top-6 sm:h-12 sm:w-12 sm:rounded-2xl">
+              <FacebookIcon className="h-4 w-4 sm:h-5 sm:w-5" />
+            </div>
+
+            {/* Instagram */}
+            <div className="float-b absolute -right-1 bottom-12 flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-orange-400 via-pink-500 to-purple-600 shadow-xl shadow-black/50 sm:-right-2 sm:bottom-16 sm:h-12 sm:w-12 sm:rounded-2xl">
+              <InstagramIcon className="h-4 w-4 sm:h-5 sm:w-5" />
+            </div>
+
+            {/* ================= TARGET BADGE ================= */}
+
             <svg
-              className="absolute -left-6 bottom-6 h-16 w-16 drop-shadow-xl"
+              className="absolute -bottom-1 -left-4 h-11 w-11 drop-shadow-xl sm:-left-6 sm:bottom-6 sm:h-16 sm:w-16"
               viewBox="0 0 80 80"
             >
               <circle
@@ -222,10 +277,12 @@ export default function Hero() {
                 className="fill-slate-900 stroke-slate-700"
                 strokeWidth="2"
               />
+
               <circle cx="40" cy="40" r="28" fill="#f97316" />
               <circle cx="40" cy="40" r="20" className="fill-slate-900" />
               <circle cx="40" cy="40" r="12" fill="#3b82f6" />
               <circle cx="40" cy="40" r="4" fill="#f8fafc" />
+
               <line
                 x1="8"
                 y1="72"
@@ -236,9 +293,10 @@ export default function Hero() {
               />
             </svg>
 
-            {/* growth arrow */}
+            {/* ================= GROWTH ARROW ================= */}
+
             <svg
-              className="absolute -top-8 right-8 h-12 w-20 opacity-90"
+              className="absolute -right-1 -top-7 h-8 w-14 opacity-90 sm:right-8 sm:-top-8 sm:h-12 sm:w-20"
               viewBox="0 0 100 60"
             >
               <polyline
@@ -249,12 +307,17 @@ export default function Hero() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
-              <polygon points="70,10 55,12 68,25" fill="#f97316" />
+
+              <polygon
+                points="70,10 55,12 68,25"
+                fill="#f97316"
+              />
             </svg>
 
-            {/* donut chart badge */}
+            {/* ================= DONUT CHART ================= */}
+
             <svg
-              className="absolute -bottom-2 left-1/3 h-12 w-12 rounded-full border border-slate-800 bg-slate-900 shadow-xl shadow-black/50"
+              className="absolute -bottom-1 left-1/3 h-9 w-9 rounded-full border border-slate-800 bg-slate-900 shadow-xl shadow-black/50 sm:-bottom-2 sm:h-12 sm:w-12"
               viewBox="0 0 36 36"
             >
               <circle
@@ -265,6 +328,7 @@ export default function Hero() {
                 stroke="#1e293b"
                 strokeWidth="4"
               />
+
               <circle
                 cx="18"
                 cy="18"
@@ -275,6 +339,7 @@ export default function Hero() {
                 strokeDasharray="45 55"
                 strokeDashoffset="25"
               />
+
               <circle
                 cx="18"
                 cy="18"
@@ -285,6 +350,7 @@ export default function Hero() {
                 strokeDasharray="30 70"
                 strokeDashoffset="-20"
               />
+
               <circle
                 cx="18"
                 cy="18"
@@ -299,6 +365,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
