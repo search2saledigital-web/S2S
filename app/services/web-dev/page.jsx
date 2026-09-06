@@ -114,7 +114,7 @@ export default function LandingPage() {
                   Web Development Services in Delhi
                 </div>
 
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
+                <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
                   Build a Fast, Modern &{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-orange-300">
                     High-Converting
