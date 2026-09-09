@@ -1,10 +1,10 @@
 import React from 'react'
-import About from './About'
+import Performance from './Performance'
 
 export default function page() {
   return (
     <>
-    <About/>
+    <Performance/>
     </>
   )
 }

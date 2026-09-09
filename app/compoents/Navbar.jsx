@@ -26,6 +26,7 @@ const Navbar = () => {
     { label: "Social Media Marketing", href: "/services/social-media-marketing" },
     { label: "Content and Creative", href: "/services/content-creative" },
     { label: "Paid Marketing", href: "/services/paid-marketing" },
+    { label: "Performance Marketing", href: "/services/performance-marketing" },
     { label: "Branding", href: "/services/branding" },
   ];
 
