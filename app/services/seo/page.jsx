@@ -81,12 +81,12 @@ export default function Page() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <button className="bg-[#ec6a06] text-black text-base sm:text-lg font-semibold px-8 py-4 rounded transition-all duration-300 shadow-[0_0_15px_rgba(249,115,22,0.2)] hover:shadow-[0_0_25px_rgba(249,115,22,0.4)] hover:scale-[1.02]">
+            <a href="/contact" className="bg-[#ec6a06] text-black text-base sm:text-lg font-semibold px-8 py-4 rounded transition-all duration-300 shadow-[0_0_15px_rgba(249,115,22,0.2)] hover:shadow-[0_0_25px_rgba(249,115,22,0.4)] hover:scale-[1.02]">
               Get Free SEO Audit
-            </button>
-            <button className="border border-[#b4c5ff] text-[#b4c5ff] text-base sm:text-lg font-semibold px-8 py-4 rounded hover:bg-[#b4c5ff]/10 transition-colors duration-300">
+            </a>
+            <a href="/our-blogs" className="border border-[#b4c5ff] text-[#b4c5ff] text-base sm:text-lg font-semibold px-8 py-4 rounded hover:bg-[#b4c5ff]/10 transition-colors duration-300">
               View Case Studies
-            </button>
+            </a>
           </div>
 
           <div className="mt-12 sm:mt-16 w-full max-w-5xl h-56 sm:h-64 md:h-96 rounded-xl overflow-hidden relative bg-[rgba(15,23,42,0.6)] backdrop-blur-md border border-white/10">

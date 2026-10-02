@@ -15,6 +15,7 @@ import {
   Globe,
   MonitorCheck,
 } from "lucide-react";
+import Link from "next/link";
 
 const NAV_LINKS = [
   { label: "Home", href: "#home" },
@@ -130,18 +131,16 @@ export default function LandingPage() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-2 md:pt-4">
-                  <button
-                    type="button"
+                  <Link href="/contact"
                     className="inline-flex items-center justify-center px-8 py-4 bg-orange-300 text-orange-950 font-mono text-xs uppercase tracking-widest font-semibold rounded hover:bg-orange-200 transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-orange-500/10"
                   >
                     Free Tech Audit
-                  </button>
-                  <button
-                    type="button"
+                  </Link>
+                  <Link href="/about"
                     className="inline-flex items-center justify-center px-8 py-4 border border-slate-600 hover:border-blue-300 text-slate-100 bg-transparent font-mono text-xs uppercase tracking-widest font-semibold rounded transition-all duration-300 hover:bg-slate-800/50"
                   >
                     Explore Services
-                  </button>
+                  </Link>
                 </div>
               </div>
 
@@ -222,11 +221,10 @@ export default function LandingPage() {
                   ({ icon: Icon, title, body, accent }) => (
                     <div
                       key={title}
-                      className={`bg-slate-900/60 backdrop-blur-xl border border-white/5 rounded-xl p-6 relative overflow-hidden group transition-colors flex flex-col justify-between min-h-[200px] ${
-                        accent === "orange"
+                      className={`bg-slate-900/60 backdrop-blur-xl border border-white/5 rounded-xl p-6 relative overflow-hidden group transition-colors flex flex-col justify-between min-h-[200px] ${accent === "orange"
                           ? "hover:border-orange-300/50"
                           : "hover:border-blue-300/50"
-                      }`}
+                        }`}
                     >
                       <Icon
                         className={
@@ -271,11 +269,10 @@ export default function LandingPage() {
                   ({ icon: Icon, title, body, accent }) => (
                     <div
                       key={title}
-                      className={`bg-slate-900/60 backdrop-blur-xl border border-white/5 rounded-xl p-5 relative overflow-hidden group transition-colors flex flex-col justify-between min-h-[200px] ${
-                        accent === "orange"
+                      className={`bg-slate-900/60 backdrop-blur-xl border border-white/5 rounded-xl p-5 relative overflow-hidden group transition-colors flex flex-col justify-between min-h-[200px] ${accent === "orange"
                           ? "hover:border-orange-300/50"
                           : "hover:border-blue-300/50"
-                      }`}
+                        }`}
                     >
                       <Icon
                         className={

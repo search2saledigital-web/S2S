@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { LiaLinkedin } from "react-icons/lia";
+import Link from "next/link";
 
 const colors = {
   background: "#0b1326",
@@ -216,7 +217,7 @@ export default function Page() {
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2">
-                <button
+                <Link href="/contact"
                   className="cta-button font-semibold px-6 sm:px-8 py-4 rounded-lg flex items-center gap-2"
                   style={{
                     backgroundColor: colors.secondaryContainer,
@@ -225,9 +226,9 @@ export default function Page() {
                 >
                   Request a Social Audit
                   <ArrowRight size={16} />
-                </button>
+                </Link>
 
-                <button
+                <Link href="/services/performance-marketing"
                   className="outline-button border px-6 sm:px-8 py-4 rounded-lg"
                   style={{
                     borderColor: colors.primary,
@@ -235,7 +236,7 @@ export default function Page() {
                   }}
                 >
                   View Performance Data
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -649,7 +650,7 @@ export default function Page() {
                   title: "Focus on Business Results",
                   body: "Likes and followers are useful indicators, but the bigger goal is to help your business increase awareness, enquiries, leads, and customers.",
                 },
-              
+
               ].map(({ icon: Icon, title, body }) => (
                 <div
                   key={title}
@@ -1020,7 +1021,7 @@ export default function Page() {
                   message.
                 </p>
 
-                
+
 
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
                   <a

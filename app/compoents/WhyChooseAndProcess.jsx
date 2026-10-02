@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Target,
   SlidersHorizontal,
@@ -10,6 +10,7 @@ import {
   Rocket,
   Trophy,
 } from "lucide-react";
+import Popup from "./Popup";
 
 const REASONS = [
   {
@@ -78,6 +79,7 @@ const PROCESS_STEPS = [
 ];
 
 export default function WhyChooseAndProcess() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const processJsonLd = {
     "@context": "https://schema.org",
     "@type": "HowTo",
@@ -103,7 +105,7 @@ export default function WhyChooseAndProcess() {
       {/* WHY CHOOSE US */}
       <section
         aria-labelledby="why-choose-heading"
-        className="relative overflow-hidden px-4 py-10 sm:px-6 md:py-14 lg:py-20"
+        className="relative overflow-hidden px-4 py-10 sm:px-6 md:py-14 lg:py-15"
       >
         {/* Background Glow */}
         <div className="pointer-events-none absolute inset-0">
@@ -186,7 +188,7 @@ export default function WhyChooseAndProcess() {
       {/* OUR PROCESS */}
       <section
         aria-labelledby="process-heading"
-        className="relative overflow-hidden border-t border-slate-900 px-4 py-10 sm:px-6 md:py-14 lg:py-20"
+        className="relative overflow-hidden border-t border-slate-900 px-4 py-10 sm:px-6 md:py-12 lg:py-15"
       >
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute bottom-0 right-1/4 h-[360px] w-[360px] rounded-full bg-orange-500/10 blur-3xl" />
@@ -261,9 +263,8 @@ export default function WhyChooseAndProcess() {
           </ol>
 
           {/* CTA */}
-          <div className="mt-12 flex justify-center lg:mt-16">
-            <a
-              href="#contact"
+          <div className="mt-5 flex justify-center lg:mt-5">
+            <button onClick={() => setIsPopupOpen(true)}
               className="
                 inline-flex items-center justify-center
                 gap-2 rounded-lg
@@ -280,9 +281,13 @@ export default function WhyChooseAndProcess() {
             >
               Start Your Growth Plan
               <span aria-hidden>→</span>
-            </a>
+            </button>
           </div>
         </div>
+        <Popup
+          isOpen={isPopupOpen}
+          onClose={() => setIsPopupOpen(false)}
+        />
       </section>
     </div>
   );

@@ -61,7 +61,7 @@ export default function Service() {
   const nextRef = useRef(null);
 
   return (
-    <section className="relative w-full overflow-hidden bg-slate-950 py-12 text-slate-50 sm:py-14 lg:py-20">
+    <section className="relative w-full overflow-hidden bg-slate-950 py-10 text-slate-50 sm:py-15">
       {/* Background Glow */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-32 -top-32 h-72 w-72 rounded-full bg-blue-600/10 blur-3xl sm:h-96 sm:w-96" />

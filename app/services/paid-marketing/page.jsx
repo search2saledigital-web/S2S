@@ -21,6 +21,7 @@ import {
   TrendingUp,
   Users,
 } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { FaGoogle, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
@@ -193,7 +194,7 @@ export default function PaidMarketingPage() {
         }
       `}</style>
 
-    
+
 
       <main>
         {/* =========================================================
@@ -226,7 +227,7 @@ export default function PaidMarketingPage() {
             }}
           />
 
-      
+
           {/* Mobile Header */}
           <div className="lg:hidden absolute top-0 left-0 right-0 z-30 px-5 py-5 flex items-center justify-between">
             <div className="font-bold text-lg">
@@ -314,8 +315,8 @@ export default function PaidMarketingPage() {
               </p>
 
               <div className="flex flex-wrap gap-4 mt-8">
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className="accent-button inline-flex items-center gap-2 font-semibold px-7 sm:px-8 py-4 rounded-lg"
                   style={{
                     backgroundColor: colors.secondaryContainer,
@@ -324,10 +325,10 @@ export default function PaidMarketingPage() {
                 >
                   Get a Free Paid Advertising Audit
                   <ArrowRight size={17} />
-                </a>
+                </Link>
 
-                <a
-                  href="#services"
+                <Link
+                  href="/about"
                   className="outline-button inline-flex items-center gap-2 border px-7 sm:px-8 py-4 rounded-lg font-semibold"
                   style={{
                     borderColor: colors.outlineVariant,
@@ -335,7 +336,7 @@ export default function PaidMarketingPage() {
                   }}
                 >
                   Explore Services
-                </a>
+                </Link>
               </div>
             </div>
 

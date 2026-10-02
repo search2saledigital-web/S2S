@@ -3,27 +3,54 @@ import connectDB from "@/lib/mongodb";
 import Blog from "@/model/Blog";
 import cloudinary from "@/lib/cloudinary";
 
-export async function GET() {
+export async function GET(request) {
   try {
     await connectDB();
 
-    const blogs = await Blog.find({})
+    const { searchParams } = new URL(request.url);
+    const slug = searchParams.get("slug");
+
+    // Single blog
+    if (slug) {
+      const blog = await Blog.findOne({ slug }).lean();
+
+      if (!blog) {
+        return NextResponse.json(
+          { success: false, message: "Blog not found" },
+          { status: 404 }
+        );
+      }
+
+      return NextResponse.json(
+        { success: true, blog },
+        { status: 200 }
+      );
+    }
+
+    // All blogs
+    const blogs = await Blog.find()
       .sort({ date: -1 })
+      .select("-content")
       .lean();
 
-    return NextResponse.json(blogs, { status: 200 });
+    return NextResponse.json(
+      {
+        success: true,
+        count: blogs.length,
+        blogs,
+      },
+      { status: 200 }
+    );
   } catch (error) {
     console.error("GET BLOG ERROR:", error);
 
     return NextResponse.json(
-      {
-        success: false,
-        message: "Failed to fetch blogs",
-      },
+      { success: false, message: "Failed to fetch blogs" },
       { status: 500 }
     );
   }
 }
+
 
 export async function POST(request) {
   try {

@@ -7,6 +7,7 @@ import {
   Globe,
   ShieldCheck,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function Page() {
   const services = [
@@ -90,12 +91,12 @@ export default function Page() {
               positioning.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-[#ec6a06] text-[#4a1c00] font-mono text-xs px-8 py-4 rounded transition-transform hover:scale-105 shadow-[0_0_15px_rgba(236,106,6,0.2)] hover:shadow-[0_0_25px_rgba(236,106,6,0.4)] uppercase tracking-wider font-bold text-center">
+              <Link href="/contact" className="bg-[#ec6a06] text-[#4a1c00] font-mono text-xs px-8 py-4 rounded transition-transform hover:scale-105 shadow-[0_0_15px_rgba(236,106,6,0.2)] hover:shadow-[0_0_25px_rgba(236,106,6,0.4)] uppercase tracking-wider font-bold text-center">
                 Get Free Brand Audit
-              </button>
-              <button className="border border-[#8d90a0] text-[#dae2fd] font-mono text-xs px-8 py-4 rounded hover:bg-[#2d3449] transition-colors uppercase tracking-wider text-center flex justify-center items-center gap-2">
+              </Link>
+              <Link href="/about" className="border border-[#8d90a0] text-[#dae2fd] font-mono text-xs px-8 py-4 rounded hover:bg-[#2d3449] transition-colors uppercase tracking-wider text-center flex justify-center items-center gap-2">
                 View Our Work <ArrowRight size={16} />
-              </button>
+              </Link>
             </div>
           </div>
         </section>

@@ -31,6 +31,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { BsYoutube } from "react-icons/bs";
+import Link from "next/link";
 
 const colors = {
   background: "#0b1326",
@@ -319,7 +320,7 @@ export default function Page() {
         color: colors.onSurface,
       }}
     >
-     
+
 
       <main className="">
         {/* Hero */}
@@ -389,8 +390,8 @@ export default function Page() {
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className="group px-7 py-4 rounded-xl font-semibold text-center flex items-center justify-center gap-2 transition-all duration-300 hover:bg-[#ff7a1a] hover:scale-[1.02]"
                   style={{
                     backgroundColor: colors.accent,
@@ -402,10 +403,10 @@ export default function Page() {
                     size={18}
                     className="transition-transform group-hover:translate-x-1"
                   />
-                </a>
+                </Link>
 
-                <a
-                  href="#services"
+                <Link
+                  href="/our-blogs"
                   className="px-7 py-4 rounded-xl font-semibold text-center border transition-all duration-300 hover:border-[#ff6900] hover:text-[#ff6900]"
                   style={{
                     borderColor: `${colors.primary}45`,
@@ -413,7 +414,7 @@ export default function Page() {
                   }}
                 >
                   Explore Our Services
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -1101,7 +1102,7 @@ export default function Page() {
           </div>
         </section>
 
-      
+
 
         {/* Process */}
         <section
@@ -1556,7 +1557,7 @@ export default function Page() {
                   }}
                 >
                   <PhoneCall size={18} />
-                   +91 85069 38033
+                  +91 85069 38033
                 </a>
 
                 <a

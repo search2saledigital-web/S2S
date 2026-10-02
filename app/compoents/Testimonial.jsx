@@ -1,5 +1,6 @@
 import { FiPlus } from "react-icons/fi";
 import { FaStar, FaQuoteRight } from "react-icons/fa";
+import { Mail, Phone, User } from "lucide-react";
 
 // Left side accordion-style list items
 const reviewers = ["Your Address", "Neha Verma"];
@@ -10,14 +11,14 @@ const testimonials = [
     text: "Team's2Sale Digital transformed our responsive and results, our traffic and sales have increased significantly. Highly recommended!",
     name: "Rohit Sharma",
     role: "CEO, RealEstateHub",
-    avatar: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200", 
+    avatar: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200",
     rating: 5,
   },
   {
     text: "Excellent communication and amazing results. We saw great growth in a short period.",
     name: "Amit Patel",
     role: "Founder, FitLife",
-    avatar: "https://randomuser.me/api/portraits/men/75.jpg", 
+    avatar: "https://randomuser.me/api/portraits/men/75.jpg",
     rating: 5,
   },
 ];
@@ -36,15 +37,18 @@ export default function Testimonials() {
           </h2>
 
           <div className="mt-8 space-y-3">
-            {reviewers.map((name) => (
-              <div
-                key={name}
-                className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300 transition-colors hover:border-orange-400/40"
-              >
-                <span>{name}</span>
-                <FiPlus className="text-orange-400" />
-              </div>
-            ))}
+            <a href="tel:918506938033"
+              className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300 transition-colors hover:border-orange-400/40"
+            >
+              <span>Get Your Free Quote</span>
+              <Phone size={18} className="text-orange-400" />
+            </a>
+            <a href="mailto:info@search2saledigital.com"
+              className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300 transition-colors hover:border-orange-400/40"
+            >
+              <span>Give you Feedback</span>
+              <Mail size={18} className="text-orange-400" />
+            </a>
           </div>
         </div>
 
@@ -69,11 +73,7 @@ export default function Testimonials() {
 
               <div className="mt-6 flex items-center gap-3">
                 {t.avatar ? (
-                  <img
-                    src={t.avatar}
-                    alt={t.name}
-                    className="h-10 w-10 rounded-full object-cover"
-                  />
+                  <User />
                 ) : (
                   <div className="h-10 w-10 shrink-0 rounded-full border border-dashed border-white/20 bg-white/5" />
                 )}

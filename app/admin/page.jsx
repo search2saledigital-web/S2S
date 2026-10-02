@@ -62,7 +62,7 @@ export default function page() {
 
                                             <div className="mt-auto pt-2 flex justify-between items-center">
                                                 <Link
-                                                    href={`/our-articles/${item.permalink}`}
+                                                    href={`/our-blogs/${item.slug}`}
                                                     className="text-sm font-medium text-yellow-500 hover:underline"
                                                 >
                                                     Read More →

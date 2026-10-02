@@ -1,6 +1,8 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import { Check } from "lucide-react";
 import Image from "next/image";
+import Popup from "./Popup";
 
 const FEATURES = [
   "Google Ads",
@@ -51,8 +53,10 @@ function InstagramIcon({ className }) {
 }
 
 export default function Hero() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-slate-950 text-slate-50">
+    <section className="relative min-h-[70vh] w-full overflow-hidden bg-slate-950 text-slate-50">
       {/* Floating animations */}
       <style>{`
         @keyframes floatA {
@@ -84,11 +88,11 @@ export default function Hero() {
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-12 sm:px-6 sm:py-16 md:gap-14 lg:grid-cols-2 lg:gap-10 lg:px-10 lg:py-14 xl:px-16">
         {/* ================= LEFT CONTENT ================= */}
         <div className="w-full">
-          <h1 className="text-xl font-semibold leading-snug text-slate-100 sm:text-2xl md:text-3xl">
+          <h1 className="text-base font-semibold leading-snug text-slate-100 sm:text-lg md:text-xl">
             Best Digital Marketing Agency in Delhi
           </h1>
 
-          <h2 className="mt-2 text-3xl  font-extrabold leading-[1.15] tracking-tight sm:text-4xl md:text-5xl lg:text-5xl">
+          <h2 className="mt-2 text-3xl  font-extrabold leading-[1.15] tracking-tight sm:text-4xl md:text-5xl lg:text-4xl">
             <span className="block bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent">
               Grow Your Business Online
             </span>
@@ -98,11 +102,11 @@ export default function Hero() {
             </span>
           </h2>
 
-          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.08em] text-orange-400 sm:text-sm">
+          {/* <p className="mt-4 text-xs font-semibold uppercase tracking-[0.08em] text-orange-400 sm:text-sm">
             Get More Visibility. Generate More Leads. Grow More Sales.
-          </p>
+          </p> */}
 
-          <p className="mt-5 max-w-2xl text-sm leading-6 text-slate-400 sm:text-base">
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-400 sm:text-base">
             At Search2Sale Digital, we help businesses build a powerful
             digital presence through effective{" "}
             <strong className="text-slate-300">
@@ -112,11 +116,11 @@ export default function Hero() {
             </strong>
           </p>
 
-          <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-400 sm:text-base">
+          {/* <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-400 sm:text-base">
             Whether you are a startup, local business, service provider, or
             established brand, our team creates strategies based on your
             business goals and target audience.
-          </p>
+          </p> */}
 
           {/* Features */}
           <ul className="mt-7 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
@@ -139,20 +143,20 @@ export default function Hero() {
 
           {/* Buttons */}
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
-            <button className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-br from-orange-400 to-orange-500 px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-lg shadow-orange-500/25 transition hover:-translate-y-0.5 hover:shadow-orange-500/40 sm:w-auto">
+            <a href="tel:918506938033" className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-br from-orange-400 to-orange-500 px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-lg shadow-orange-500/25 transition hover:-translate-y-0.5 hover:shadow-orange-500/40 sm:w-auto">
               Get Free Audit
               <span aria-hidden>→</span>
-            </button>
+            </a>
 
-            <button className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-slate-700 bg-transparent px-6 py-3.5 text-sm font-semibold text-slate-100 transition hover:-translate-y-0.5 hover:bg-slate-900 sm:w-auto">
+            <button onClick={() => setIsPopupOpen(true)} className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-slate-700 bg-transparent px-6 py-3.5 text-sm font-semibold text-slate-100 transition hover:-translate-y-0.5 hover:bg-slate-900 sm:w-auto">
               Book Consultation
               <span aria-hidden>+</span>
             </button>
           </div>
 
           {/* Partners */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:mt-12 sm:justify-start sm:gap-4">
-            {/* Google */}
+          {/* <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:mt-12 sm:justify-start sm:gap-4">
+            {/* Google 
             <div className="flex flex-col items-center gap-1.5 rounded-lg border border-slate-800 bg-slate-900 px-2 py-2">
               <div className="flex h-10 w-16 items-center justify-center sm:h-12 sm:w-20">
                 <Image
@@ -169,7 +173,7 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* Meta */}
+            {/* Meta 
             <div className="flex flex-col items-center gap-1.5 rounded-lg border border-slate-800 bg-slate-900 px-2 py-2">
               <div className="flex h-10 w-16 items-center justify-center sm:h-12 sm:w-20">
                 <Image
@@ -185,7 +189,7 @@ export default function Hero() {
                 Business Partner
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* ================= RIGHT VISUAL ================= */}
@@ -365,6 +369,11 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      <Popup
+        isOpen={isPopupOpen}
+        onClose={() => setIsPopupOpen(false)}
+      />
     </section>
   );
 }

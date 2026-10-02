@@ -1,10 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-  reactCompiler: true,
   images: {
-  domains: ["lh3.googleusercontent.com"],
-}
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/mfiy6hcu/image/upload/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

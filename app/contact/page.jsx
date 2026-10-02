@@ -19,6 +19,7 @@ import {
   Target,
   HelpCircle,
 } from "lucide-react";
+import { FiArrowRight, FiChevronDown } from "react-icons/fi";
 
 const services = [
   {
@@ -92,44 +93,72 @@ const faqs = [
 ];
 
 export default function Contact() {
-  const [form, setForm] = useState({
+  const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
-    url: "",
-    service: "",
+    email: "",
+    product: "",
+    place: "",
+    priceRange: "",
     message: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
-
+  const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
-    const { id, value } = e.target;
+    const { name, value } = e.target;
 
-    setForm((prev) => ({
+    setFormData((prev) => ({
       ...prev,
-      [id]: value,
+      [name]: value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setSubmitted(true);
+    if (
+      !formData.name ||
+      !formData.phone ||
+      !formData.email ||
+      !formData.product ||
+      !formData.place ||
+      !formData.message
+    ) {
+      toast.error("Please fill all required fields.");
+      return;
+    }
 
-    setTimeout(() => {
-      setSubmitted(false);
+    try {
+      setLoading(true);
 
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-        url: "",
-        service: "",
-        message: "",
-      });
-    }, 3000);
+      const response = await axios.post("/api/form", formData);
+
+      if (response.data.success) {
+        toast.success("Thanks! Our team will get back to you soon.");
+
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          product: "",
+          place: "",
+          priceRange: "",
+          message: "",
+        });
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+
+      const message =
+        error?.response?.data?.message ||
+        "Something went wrong. Please try again.";
+
+      toast.error(message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -137,7 +166,7 @@ export default function Contact() {
       {/* =========================================================
           HERO
       ========================================================= */}
-      <section className="relative py-6 md:py-12">
+      <section className="relative py-6 md:py-12 border-b border-white/5 bg-white/[0.015]">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block mb-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#ec6a06]">
@@ -160,22 +189,6 @@ export default function Contact() {
               to grow your business, generate quality leads and increase online
               visibility?
             </p>
-
-            <p className="mt-5 text-base sm:text-lg leading-8 text-white/55 max-w-3xl mx-auto">
-              Search2Sale Digital helps businesses build a stronger digital
-              presence through{" "}
-              <span className="text-white font-medium">
-                SEO, Google Ads, Meta Ads, social media marketing, web
-                development, content marketing, branding and performance
-                marketing.
-              </span>
-            </p>
-
-            <p className="mt-5 text-base sm:text-lg leading-8 text-white/55 max-w-3xl mx-auto">
-              Tell us about your business and your goals. Our team will
-              understand your requirements and recommend the right digital
-              marketing strategy for your business.
-            </p>
           </div>
         </div>
       </section>
@@ -188,12 +201,8 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
             {/* FORM */}
             <div className="lg:col-span-7 rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:p-8 md:p-10">
-              <div className="mb-8">
-                <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-[#ec6a06]">
-                  Get a Free Digital Marketing Consultation
-                </span>
-
-                <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+              <div className="mb-3">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
                   Tell Us About Your Business
                 </h2>
 
@@ -219,115 +228,119 @@ export default function Contact() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  {/* NAME + EMAIL */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="mb-2 block text-sm font-medium text-white/75"
-                      >
-                        Full Name
-                      </label>
+                <form
+                  onSubmit={handleSubmit}
+                  className="relative mt-7 space-y-4"
+                >
+                  {/* Name + Phone */}
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Your Name"
+                      required
+                      className="
+                                  w-full rounded-lg
+                                  border border-slate-700
+                                  bg-slate-900/70
+                                  px-4 py-3
+                                  text-sm text-white
+                                  placeholder:text-slate-500
+                                  outline-none
+                                  transition-colors
+                                  focus:border-orange-400
+                                  focus:ring-1
+                                  focus:ring-orange-400/20
+                                "
+                    />
 
-                      <input
-                        id="name"
-                        type="text"
-                        required
-                        value={form.name}
-                        onChange={handleChange}
-                        placeholder="Enter your name"
-                        className="w-full rounded-xl border border-white/10 bg-[#020618] px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-[#ec6a06]"
-                      />
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="mb-2 block text-sm font-medium text-white/75"
-                      >
-                        Business Email
-                      </label>
-
-                      <input
-                        id="email"
-                        type="email"
-                        required
-                        value={form.email}
-                        onChange={handleChange}
-                        placeholder="Enter your email address"
-                        className="w-full rounded-xl border border-white/10 bg-[#020618] px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-[#ec6a06]"
-                      />
-                    </div>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Phone Number"
+                      required
+                      className="
+                                  w-full rounded-lg
+                                  border border-slate-700
+                                  bg-slate-900/70
+                                  px-4 py-3
+                                  text-sm text-white
+                                  placeholder:text-slate-500
+                                  outline-none
+                                  transition-colors
+                                  focus:border-orange-400
+                                  focus:ring-1
+                                  focus:ring-orange-400/20
+                                "
+                    />
                   </div>
 
-                  {/* PHONE + WEBSITE */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label
-                        htmlFor="phone"
-                        className="mb-2 block text-sm font-medium text-white/75"
-                      >
-                        Phone Number
-                      </label>
-
-                      <input
-                        id="phone"
-                        type="tel"
-                        required
-                        value={form.phone}
-                        onChange={handleChange}
-                        placeholder="Enter your phone number"
-                        className="w-full rounded-xl border border-white/10 bg-[#020618] px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-[#ec6a06]"
-                      />
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="url"
-                        className="mb-2 block text-sm font-medium text-white/75"
-                      >
-                        Website URL
-                      </label>
-
-                      <input
-                        id="url"
-                        type="url"
-                        value={form.url}
-                        onChange={handleChange}
-                        placeholder="Enter your website URL"
-                        className="w-full rounded-xl border border-white/10 bg-[#020618] px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-[#ec6a06]"
-                      />
-                    </div>
-                  </div>
-
-                  {/* SERVICE */}
-                  <div>
-                    <label
-                      htmlFor="service"
-                      className="mb-2 block text-sm font-medium text-white/75"
-                    >
-                      Interested Service
-                    </label>
+                  {/* Email + Service */}
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Email Address"
+                      required
+                      className="
+                                  w-full rounded-lg
+                                  border border-slate-700
+                                  bg-slate-900/70
+                                  px-4 py-3
+                                  text-sm text-white
+                                  placeholder:text-slate-500
+                                  outline-none
+                                  transition-colors
+                                  focus:border-orange-400
+                                  focus:ring-1
+                                  focus:ring-orange-400/20
+                                "
+                    />
 
                     <div className="relative">
                       <select
-                        id="service"
-                        required
-                        value={form.service}
+                        name="product"
+                        value={formData.product}
                         onChange={handleChange}
-                        className="w-full appearance-none rounded-xl border border-white/10 bg-[#020618] px-4 py-3.5 pr-12 text-white outline-none transition-all focus:border-[#ec6a06]"
+                        required
+                        className="
+                                    w-full appearance-none
+                                    rounded-lg
+                                    border border-slate-700
+                                    bg-slate-900/70
+                                    px-4 py-3
+                                    text-sm text-slate-300
+                                    outline-none
+                                    transition-colors
+                                    focus:border-orange-400
+                                    focus:ring-1
+                                    focus:ring-orange-400/20
+                                  "
                       >
                         <option value="" disabled>
-                          Select a service
+                          Select Service
                         </option>
 
                         <option value="SEO Services">
                           SEO Services
                         </option>
 
-                        <option value="Google Ads / PPC">
-                          Google Ads / PPC
+                        <option value="Google Business Profile Optimization">
+                          Google Business Profile Optimization
+                        </option>
+
+                        <option value="Website Development">
+                          Website Development
+                        </option>
+
+                        <option value="Google Ads & PPC">
+                          Google Ads & PPC
                         </option>
 
                         <option value="Meta Ads">
@@ -338,76 +351,170 @@ export default function Contact() {
                           Social Media Marketing
                         </option>
 
-                        <option value="Web Development">
-                          Web Development
-                        </option>
-
-                        <option value="Content & Creative">
-                          Content & Creative
-                        </option>
-
-                        <option value="Branding">
-                          Branding
-                        </option>
-
-                        <option value="Performance Marketing">
-                          Performance Marketing
+                        <option value="Content Marketing">
+                          Content Marketing
                         </option>
 
                         <option value="Lead Generation">
                           Lead Generation
                         </option>
-
-                        <option value="Other">
-                          Other
-                        </option>
                       </select>
 
-                      <ChevronDown
-                        size={18}
-                        className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-white/40"
+                      <FiChevronDown
+                        className="
+                                    pointer-events-none
+                                    absolute right-4 top-1/2
+                                    h-4 w-4
+                                    -translate-y-1/2
+                                    text-slate-400
+                                  "
                       />
                     </div>
                   </div>
 
-                  {/* MESSAGE */}
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="mb-2 block text-sm font-medium text-white/75"
-                    >
-                      Tell Us About Your Business
-                    </label>
-
-                    <textarea
-                      id="message"
-                      required
-                      rows={6}
-                      value={form.message}
+                  {/* Place + Budget */}
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <input
+                      type="text"
+                      name="place"
+                      value={formData.place}
                       onChange={handleChange}
-                      placeholder="Share your business requirements, current challenges and marketing goals."
-                      className="w-full resize-none rounded-xl border border-white/10 bg-[#020618] px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-[#ec6a06]"
+                      placeholder="Your City / Place"
+                      required
+                      className="
+                                  w-full rounded-lg
+                                  border border-slate-700
+                                  bg-slate-900/70
+                                  px-4 py-3
+                                  text-sm text-white
+                                  placeholder:text-slate-500
+                                  outline-none
+                                  transition-colors
+                                  focus:border-orange-400
+                                  focus:ring-1
+                                  focus:ring-orange-400/20
+                                "
                     />
+
+                    <div className="relative">
+                      <select
+                        name="priceRange"
+                        value={formData.priceRange}
+                        onChange={handleChange}
+                        className="
+                                    w-full appearance-none
+                                    rounded-lg
+                                    border border-slate-700
+                                    bg-slate-900/70
+                                    px-4 py-3
+                                    text-sm text-slate-300
+                                    outline-none
+                                    transition-colors
+                                    focus:border-orange-400
+                                    focus:ring-1
+                                    focus:ring-orange-400/20
+                                  "
+                      >
+                        <option value="" disabled>
+                          Select Budget
+                        </option>
+
+                        <option value="Under ₹10,000">
+                          Under ₹10,000
+                        </option>
+
+                        <option value="₹10,000 - ₹25,000">
+                          ₹10,000 - ₹25,000
+                        </option>
+
+                        <option value="₹25,000 - ₹50,000">
+                          ₹25,000 - ₹50,000
+                        </option>
+
+                        <option value="₹50,000+">
+                          ₹50,000+
+                        </option>
+                      </select>
+
+                      <FiChevronDown
+                        className="
+                                    pointer-events-none
+                                    absolute right-4 top-1/2
+                                    h-4 w-4
+                                    -translate-y-1/2
+                                    text-slate-400
+                                  "
+                      />
+                    </div>
                   </div>
 
-                  {/* BUTTON */}
-                  <button
-                    type="submit"
-                    className="group flex w-full items-center justify-center gap-2 rounded-xl bg-[#ec6a06] px-6 py-4 text-base font-bold text-white transition-all duration-300 hover:bg-[#f4771c] active:scale-[0.99]"
-                  >
-                    <span>Submit Your Enquiry</span>
+                  {/* Message */}
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell us about your requirements"
+                    required
+                    rows={5}
+                    className="
+                                w-full resize-none
+                                rounded-lg
+                                border border-slate-700
+                                bg-slate-900/70
+                                px-4 py-3
+                                text-sm text-white
+                                placeholder:text-slate-500
+                                outline-none
+                                transition-colors
+                                focus:border-orange-400
+                                focus:ring-1
+                                focus:ring-orange-400/20
+                              "
+                  />
 
-                    <ArrowRight
-                      size={19}
-                      className="transition-transform duration-300 group-hover:translate-x-1"
-                    />
-                  </button>
+                  {/* Submit */}
+                  <div className="flex justify-center">
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="
+                                group
+                                mt-2
+                                inline-flex
+                                items-center
+                                justify-center
+                                gap-2.5
+                                rounded-full
+                                bg-gradient-to-r
+                                from-orange-400
+                                to-orange-500
+                                px-6 py-3.5
+                                text-sm font-bold
+                                text-white
+                                shadow-lg
+                                shadow-orange-500/20
+                                transition-all duration-300
+                                hover:-translate-y-0.5
+                                hover:from-orange-500
+                                hover:to-orange-600
+                                hover:shadow-orange-500/30
+                                disabled:cursor-not-allowed
+                                disabled:opacity-60
+                              "
+                    >
+                      {loading ? "Sending..." : "Get Free Consultation"}
 
-                  <p className="text-center text-xs leading-5 text-white/35">
-                    Your information is kept confidential and will only be used
-                    to understand your requirements and respond to your
-                    enquiry.
-                  </p>
+                      {!loading && (
+                        <FiArrowRight
+                          className="
+                                    transition-transform
+                                    duration-300
+                                    group-hover:translate-x-1
+                                  "
+                        />
+                      )}
+                    </button>
+                  </div>
                 </form>
               )}
             </div>
@@ -482,11 +589,9 @@ export default function Contact() {
 
                       <p className="mt-2 text-sm leading-6 text-white/75">
                         Ground Floor, Nanesh Enclave,
-                        <br />
                         House No. A-82/C,
                         <br />
                         Kh. No. 36/9, Street No. 1,
-                        <br />
                         Jain Colony,
                         <br />
                         Delhi – 110042, India
@@ -494,31 +599,6 @@ export default function Contact() {
                     </div>
                   </div>
                 </div>
-              </div>
-
-              {/* QUICK CTA */}
-              <div className="rounded-3xl border border-[#ec6a06]/20 bg-[#ec6a06]/5 p-6 sm:p-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#ec6a06]/10 text-[#ec6a06]">
-                  <Target size={23} />
-                </div>
-
-                <h3 className="mt-5 text-xl sm:text-2xl font-bold text-white">
-                  Let’s Build Your Digital Growth Strategy
-                </h3>
-
-                <p className="mt-3 text-sm leading-6 text-white/55">
-                  Tell us where your business is today and where you want it
-                  to go. We’ll help identify the right digital marketing
-                  opportunities.
-                </p>
-
-                <a
-                  href="tel:+918506938033"
-                  className="mt-6 inline-flex items-center gap-2 font-semibold text-[#ec6a06]"
-                >
-                  Talk to an Expert
-                  <ArrowRight size={17} />
-                </a>
               </div>
             </div>
           </div>
@@ -670,9 +750,8 @@ export default function Contact() {
 
                     <ChevronDown
                       size={19}
-                      className={`shrink-0 text-white/40 transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
+                      className={`shrink-0 text-white/40 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                        }`}
                     />
                   </button>
 

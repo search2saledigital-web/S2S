@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Hero from "./compoents/Hero";
 import About from "./compoents/About";
@@ -10,13 +11,13 @@ import WhyChooseAndProcess from "./compoents/WhyChooseAndProcess";
 export default function Home() {
   return (
     <>
-    <Hero/>
-    <Service/>
-    <About/>
-    <WhyChooseAndProcess/>
-    <Testimonials/>
-    <Faq/>
-    <CTA/>
+      <Hero />
+      <Service />
+      <About />
+      <WhyChooseAndProcess />
+      <Testimonials />
+      <Faq />
+      <CTA />
 
     </>
   );

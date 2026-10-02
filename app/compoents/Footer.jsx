@@ -13,30 +13,27 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const footerLinks = {
+  Company: [
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
+    { label: "Contact Us", href: "/contact" },
+    { label: "Our Blog", href: "/our-blogs" },
+  ],
   Services: [
-    "Google Ads",
-    "Meta Ads",
-    "SEO Services",
-    "Website Development",
-    "Lead Generation",
-    "Analytics & Tracking",
+    { label: "Google Ads", href: "/services/paid-marketing" },
+    { label: "Meta Ads", href: "/services/paid-marketing" },
+    { label: "SEO Services", href: "/services/seo" },
+    { label: "Website Development", href: "/services/web-dev" },
+    { label: "Lead Generation", href: "/services/performance-marketing" },
+    { label: "Analytics & Tracking", href: "/services/performance-marketing" },
   ],
-  Industries: [
-    "Real Estate",
-    "Healthcare",
-    "Education",
-    "E-commerce",
-    "Finance",
-    "Automotive",
-  ],
-  Company: ["About Us", "Our Process", "Case Studies", "Careers", "Blog"],
 };
 
 const socialLinks = [
-  { icon: FaFacebookF, href: "#", label: "Facebook" },
-  { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
-  { icon: FaInstagram, href: "#", label: "Instagram" },
-  { icon: FaYoutube, href: "#", label: "YouTube" },
+  { icon: FaFacebookF, href: "https://www.facebook.com/share/p/1QFuga7b4j/", label: "Facebook" },
+  // { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
+  { icon: FaInstagram, href: "https://www.instagram.com/search2saledigital2026?stkn=cG50aTJ5bHI4ZHVi", label: "Instagram" },
+  // { icon: FaYoutube, href: "#", label: "YouTube" },
 ];
 
 export default function Footer() {
@@ -46,12 +43,12 @@ export default function Footer() {
   return (
     <footer className="bg-[#0b1220] text-slate-300">
       <div className="mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:px-10">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 
           {/* Brand */}
           <div className="col-span-2 sm:col-span-2 lg:col-span-2">
             <div className="flex items-center gap-2">
-              <Image src="/logo.png" width={100} height={100} className=" h-20 w-30 object-cover" />
+              <Image src="/logo.png" alt="logo" width={100} height={100} className=" h-20 w-30 object-cover" />
 
             </div>
 
@@ -79,13 +76,13 @@ export default function Footer() {
             <div key={title} className="col-span-1">
               <h3 className="text-sm font-semibold text-white">{title}</h3>
               <ul className="mt-4 space-y-3">
-                {links.map((link) => (
-                  <li key={link}>
+                {links.map(({ label, href }) => (
+                  <li key={label}>
                     <Link
-                      href="#"
+                      href={href}
                       className="text-sm text-slate-400 transition-colors hover:text-orange-400"
                     >
-                      {link}
+                      {label}
                     </Link>
                   </li>
                 ))}
@@ -97,26 +94,26 @@ export default function Footer() {
           <div className="col-span-2 sm:col-span-1">
             <h3 className="text-sm font-semibold text-white">Contact Us</h3>
             <ul className="mt-4 space-y-3 text-sm text-slate-400">
-             <a href="tel:+918506938033" className="flex items-start gap-2">
-  <FaPhoneAlt
-    size={16}
-    className="mt-0.5 shrink-0 text-orange-400"
-  />
-  <span>+91 85069 38033</span>
-</a>
+              <a href="tel:+918506938033" className="flex items-start gap-2">
+                <FaPhoneAlt
+                  size={16}
+                  className="mt-0.5 shrink-0 text-orange-400"
+                />
+                <span>+91 85069 38033</span>
+              </a>
 
-                <a
-  href="mailto:info@search2saledigital.com"
-  className="flex items-start gap-2 transition-colors hover:text-orange-400"
->
-  <MdEmail
-    size={16}
-    className="mt-0.5 shrink-0 text-orange-400"
-  />
-  <span className="break-all">
-    info@search2saledigital.com
-  </span>
-</a>
+              <a
+                href="mailto:info@search2saledigital.com"
+                className="flex items-start gap-2 transition-colors hover:text-orange-400"
+              >
+                <MdEmail
+                  size={16}
+                  className="mt-0.5 shrink-0 text-orange-400"
+                />
+                <span className="break-all">
+                  info@search2saledigital.com
+                </span>
+              </a>
 
               <li className="flex items-start gap-2">
                 <MdLocationOn
@@ -159,7 +156,7 @@ export default function Footer() {
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row">
           <p>© 2026 Search2sale Digital. All Rights Reserved.</p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          {/* <div className="flex flex-wrap items-center justify-center gap-4">
             <Link href="#" className="hover:text-orange-400">
               Privacy Policy
             </Link>
@@ -169,7 +166,7 @@ export default function Footer() {
             <Link href="#" className="hover:text-orange-400">
               Sitemap
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

@@ -67,3 +67,72 @@ body {
 .jodit-content li {
   margin: 5px 0;
 }
+
+@keyframes popupIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.blog-content h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.blog-content h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-content p {
+  margin-bottom: 1.5rem;
+}
+
+.blog-content ul,
+.blog-content ol {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.blog-content ul {
+  list-style: disc;
+}
+
+.blog-content ol {
+  list-style: decimal;
+}
+
+.blog-content li {
+  margin-bottom: 0.5rem;
+}
+
+.blog-content a {
+  color: #ec6a06;
+  text-decoration: underline;
+}
+
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.blog-content blockquote {
+  border-left: 3px solid #ec6a06;
+  padding-left: 1.25rem;
+  color: #ffffff;
+  margin: 2rem 0;
+}

@@ -1,5 +1,6 @@
 "use client"
 import { ArrowRight, AtSign, BarChart3, CheckCircle2, ChevronDown, Eye, Globe, LineChart, Mail, MessageSquareText, MousePointerClick, Phone, RefreshCcw, Repeat, Rocket, Search, Share2, ShoppingCart, SlidersHorizontal, Target, Terminal } from "lucide-react";
+import Link from "next/link";
 import React, { useEffect } from "react";
 import { BsInstagram } from "react-icons/bs";
 
@@ -165,7 +166,7 @@ export default function Performance() {
         details[open] .chev { transform: rotate(180deg); }
       `}</style>
 
-     
+
       <main className="pt-5">
         {/* Hero */}
         <section className="relative  flex items-center justify-center overflow-hidden py-6 md:py-12">
@@ -174,21 +175,21 @@ export default function Performance() {
               Performance Marketing · Delhi
             </span>
             <h1 className=" text-[36px] md:text-[60px] leading-[1.2] md:leading-[1.1] tracking-tight font-extrabold mb-8 text-glow-primary">
-             <span className="text-[#ec6a06]"> Performance Marketing </span> Services in Delhi
+              <span className="text-[#ec6a06]"> Performance Marketing </span> Services in Delhi
 
-             
+
             </h1>
             <p className="font-body text-lg leading-relaxed text-[#c3c6d7] mb-10 max-w-2xl mx-auto">
               We build performance-driven strategies around outcomes that matter — qualified leads, sales,
               conversions, revenue, and return on marketing investment. Not just clicks and impressions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-[#ec6a06] text-white px-8 py-4 rounded-full font-bold btn-glow-secondary transition-all hover:scale-105">
+              <Link href="/contact" className="bg-[#ec6a06] text-white px-8 py-4 rounded-full font-bold btn-glow-secondary transition-all hover:scale-105">
                 Get Free Consultation
-              </button>
-              <button className="border border-[#8d90a0] text-[#dae2fd] px-8 py-4 rounded-full font-bold hover:bg-[#2d3449]/30 transition-all">
+              </Link>
+              <Link href="/about" className="border border-[#8d90a0] text-[#dae2fd] px-8 py-4 rounded-full font-bold hover:bg-[#2d3449]/30 transition-all">
                 View Our Process
-              </button>
+              </Link>
             </div>
           </div>
         </section>

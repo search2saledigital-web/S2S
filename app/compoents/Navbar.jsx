@@ -3,8 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useRef, useState } from "react";
+import Popup from "./Popup";
 
 const Navbar = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("Home");
   const [showDropdown, setShowDropdown] = useState(false);
@@ -13,11 +15,10 @@ const Navbar = () => {
   if (adminLayout) return null;
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Services", href: "/services" },
-    { label: "Our Work", href: "/portfolio" },
-    { label: "Blogs", href: "/our-blogs" },
     { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
     { label: "Contact", href: "/contact" },
+    { label: "Blogs", href: "/our-blogs" },
   ];
 
   const servicesDropdown = [
@@ -49,11 +50,11 @@ const Navbar = () => {
       <div className=" max-w-7xl mx-auto flex items-center justify-between bg-[#020618] px-4 py-4 md:px-8 lg:px-16 xl:px-10">
 
         {/* Logo */}
-        <Image src="/logo.png" width={100} height={100} className=" h-20 w-30 object-cover" />
+        <Image src="/logo.png" alt="logo" width={100} height={100} className=" h-20 w-30 object-cover" />
 
         {/* Desktop Menu */}
         <nav className="relative hidden md:flex items-center px-1 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-4">
 
             {navItems.map((item) => {
               // 👉 SERVICES WITH DROPDOWN
@@ -67,7 +68,7 @@ const Navbar = () => {
                   >
                     <button
                       onClick={() => setActive(item.label)}
-                      className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300
+                      className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300 tracking-wider
                       ${active === item.label
                           ? "bg-white text-zinc-900 font-bold shadow-sm"
                           : "text-zinc-300 hover:text-white hover:bg-white/10"
@@ -103,7 +104,7 @@ const Navbar = () => {
                   key={item.label}
                   href={item.href}
                   onClick={() => setActive(item.label)}
-                  className={`px-4 py-1.5 rounded-full text-sm transition-all duration-300
+                  className={`px-4 py-1.5 rounded-full text-sm transition-all duration-300 tracking-wider
                   ${active === item.label
                       ? "bg-white text-zinc-900 font-bold shadow-sm"
                       : "text-zinc-300 hover:text-white font-bold hover:bg-white/10"
@@ -117,8 +118,8 @@ const Navbar = () => {
         </nav>
 
         {/* CTA */}
-        <button className="hidden md:flex items-center gap-2.5 bg-orange-500 text-white hover:bg-orange-600 transition text-sm font-bold pl-5 pr-1.5 py-1.5 rounded-full">
-          Get Free Proposal
+        <button onClick={() => setIsPopupOpen(true)} className="hidden md:flex items-center gap-2.5 bg-orange-500 text-white hover:bg-orange-600 transition text-sm font-bold pl-5 pr-1.5 py-1.5 rounded-full">
+          Get Free Quote
           <span className="size-7 rounded-full bg-white/20 flex items-center justify-center">
             →
           </span>
@@ -187,6 +188,11 @@ const Navbar = () => {
           </div>
         )}
       </div>
+
+      <Popup
+        isOpen={isPopupOpen}
+        onClose={() => setIsPopupOpen(false)}
+      />
     </section>
   );
 };

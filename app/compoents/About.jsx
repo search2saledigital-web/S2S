@@ -3,9 +3,9 @@ import { Users, FolderCheck, IndianRupee, Heart } from "lucide-react";
 import Image from "next/image";
 
 const STATS = [
-  { icon: Users, value: "500+", label: "Happy Clients" },
-  { icon: FolderCheck, value: "1200+", label: "Projects Completed" },
-  { icon: IndianRupee, value: "15Cr+", label: "Ad Spend Managed" },
+  { icon: Users, value: "50+", label: "Happy Clients" },
+  { icon: FolderCheck, value: "120+", label: "Projects Completed" },
+  { icon: IndianRupee, value: "15k+", label: "Ad Spend Managed" },
   { icon: Heart, value: "95%", label: "Client Retention" },
 ];
 
@@ -18,7 +18,7 @@ export default function About() {
         <div className="absolute -bottom-16 left-0 h-[320px] w-[320px] rounded-full bg-orange-500/10 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-8 lg:grid-cols-2 lg:gap-16 lg:px-10 lg:py-24">
+      <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-10 lg:grid-cols-2 lg:gap-16 lg:px-10 lg:py-15">
         {/* LEFT: image with decorative shapes */}
         <div className="relative mx-auto w-full max-w-md lg:max-w-none">
           {/* orange quarter-circle accent */}
