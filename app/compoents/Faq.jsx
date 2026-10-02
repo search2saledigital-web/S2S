@@ -32,8 +32,8 @@ const FAQS = [
     answer:
       "Yes. We provide customized SEO services in Delhi designed to improve search engine visibility, attract relevant organic traffic, and generate potential customers for your business.",
   },
- 
- 
+
+
 ];
 
 export default function Faq() {
@@ -68,11 +68,7 @@ export default function Faq() {
 
     if (
       !formData.name ||
-      !formData.phone ||
-      !formData.email ||
-      !formData.product ||
-      !formData.place ||
-      !formData.message
+      !formData.phone
     ) {
       toast.error("Please fill all required fields.");
       return;
@@ -193,10 +189,9 @@ export default function Faq() {
                   <div
                     className={`
                       grid transition-all duration-300 ease-in-out
-                      ${
-                        isOpen
-                          ? "grid-rows-[1fr]"
-                          : "grid-rows-[0fr]"
+                      ${isOpen
+                        ? "grid-rows-[1fr]"
+                        : "grid-rows-[0fr]"
                       }
                     `}
                   >
@@ -227,7 +222,7 @@ export default function Faq() {
             </h2>
 
             <p className="mt-3 max-w-lg text-sm leading-relaxed text-slate-400">
-             Don't let your competitors get all the online customers.
+              Don't let your competitors get all the online customers.
             </p>
 
             <form
@@ -261,6 +256,7 @@ export default function Faq() {
                 <input
                   type="tel"
                   name="phone"
+                  maxLength={10}
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="Phone Number"
@@ -289,7 +285,6 @@ export default function Faq() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email Address"
-                  required
                   className="
                     w-full rounded-lg
                     border border-slate-700
@@ -310,7 +305,6 @@ export default function Faq() {
                     name="product"
                     value={formData.product}
                     onChange={handleChange}
-                    required
                     className="
                       w-full appearance-none
                       rounded-lg
@@ -456,7 +450,6 @@ export default function Faq() {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Tell us about your requirements"
-                required
                 rows={5}
                 className="
                   w-full resize-none

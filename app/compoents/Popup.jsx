@@ -38,11 +38,7 @@ export default function Popup({ isOpen, onClose }) {
 
         if (
             !formData.name ||
-            !formData.phone ||
-            !formData.email ||
-            !formData.product ||
-            !formData.place ||
-            !formData.message
+            !formData.phone
         ) {
             toast.error("Please fill all required fields.");
             return;
@@ -169,17 +165,16 @@ export default function Popup({ isOpen, onClose }) {
                                 value={formData.name}
                                 onChange={handleChange}
                                 placeholder="Your Name *"
-                                required
                                 className={inputClass}
                             />
 
                             <input
                                 type="tel"
+                                maxLength={10}
                                 name="phone"
                                 value={formData.phone}
                                 onChange={handleChange}
                                 placeholder="Phone Number *"
-                                required
                                 className={inputClass}
                             />
                         </div>
@@ -191,8 +186,7 @@ export default function Popup({ isOpen, onClose }) {
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                placeholder="Email Address *"
-                                required
+                                placeholder="Email Address"
                                 className={inputClass}
                             />
 
@@ -201,14 +195,13 @@ export default function Popup({ isOpen, onClose }) {
                                     name="product"
                                     value={formData.product}
                                     onChange={handleChange}
-                                    required
                                     className={`${inputClass} appearance-none ${!formData.product
-                                            ? "text-slate-500"
-                                            : "text-white"
+                                        ? "text-slate-500"
+                                        : "text-white"
                                         }`}
                                 >
                                     <option value="" disabled>
-                                        Select Service *
+                                        Select Service
                                     </option>
                                     <option value="SEO Services">SEO Services</option>
                                     <option value="Google Business Profile Optimization">
@@ -243,8 +236,7 @@ export default function Popup({ isOpen, onClose }) {
                                 name="place"
                                 value={formData.place}
                                 onChange={handleChange}
-                                placeholder="Your City / Place *"
-                                required
+                                placeholder="Your City / Place"
                                 className={inputClass}
                             />
 
@@ -254,8 +246,8 @@ export default function Popup({ isOpen, onClose }) {
                                     value={formData.priceRange}
                                     onChange={handleChange}
                                     className={`${inputClass} appearance-none ${!formData.priceRange
-                                            ? "text-slate-500"
-                                            : "text-white"
+                                        ? "text-slate-500"
+                                        : "text-white"
                                         }`}
                                 >
                                     <option value="" disabled>
@@ -284,8 +276,7 @@ export default function Popup({ isOpen, onClose }) {
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
-                            placeholder="Tell us about your requirements *"
-                            required
+                            placeholder="Tell us about your requirements"
                             rows={3}
                             className={`${inputClass} resize-none`}
                         />

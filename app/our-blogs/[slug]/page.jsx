@@ -4,7 +4,7 @@ import Link from "next/link";
 import { CalendarDays, ArrowLeft } from "lucide-react";
 
 const API_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000" || "https://search2saledigital.com";
 
 async function getBlog(slug) {
   try {

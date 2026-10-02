@@ -182,7 +182,7 @@ const Navbar = () => {
               </div>
             ))}
 
-            <button className="bg-orange-500 text-white py-2.5 rounded-full mt-2">
+            <button onClick={() => setIsPopupOpen(true)} className="bg-orange-500 text-white py-2.5 rounded-full mt-2">
               Get Free Proposal →
             </button>
           </div>
