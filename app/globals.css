@@ -1,5 +1,109 @@
 @import "tailwindcss";
 
+@keyframes locationFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes locationHeroCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes locationBarIn {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.location-reveal {
+  animation: locationFadeUp 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--location-delay, 0s);
+}
+
+.location-hero-item {
+  animation: locationFadeUp 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.location-hero-delay-1 {
+  animation-delay: 80ms;
+}
+
+.location-hero-delay-2 {
+  animation-delay: 180ms;
+}
+
+.location-hero-delay-3 {
+  animation-delay: 280ms;
+}
+
+.location-hero-delay-4 {
+  animation-delay: 380ms;
+}
+
+.location-hero-delay-5 {
+  animation-delay: 480ms;
+}
+
+.location-hero-card {
+  animation: locationHeroCardIn 800ms cubic-bezier(0.22, 1, 0.36, 1) 250ms both;
+}
+
+.location-chart-bar {
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: locationBarIn 800ms ease-out var(--bar-delay, 0.55s) both;
+}
+
+.location-industry-swiper .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.location-industry-swiper .swiper-pagination-bullet {
+  width: 7px;
+  height: 7px;
+  background: rgb(148 163 184 / 55%);
+  opacity: 1;
+  transition: width 200ms ease, background-color 200ms ease;
+}
+
+.location-industry-swiper .swiper-pagination-bullet-active {
+  width: 22px;
+  border-radius: 999px;
+  background: #fb923c;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .location-reveal,
+  .location-hero-item,
+  .location-hero-card,
+  .location-chart-bar,
+  .location-industry-swiper .swiper-pagination-bullet {
+    animation: none;
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

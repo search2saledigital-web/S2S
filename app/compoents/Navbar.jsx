@@ -46,11 +46,11 @@ const Navbar = () => {
   };
 
   return (
-    <section className="w-full sticky top-0 z-50 bg-[#020618]">
-      <div className=" max-w-7xl mx-auto flex items-center justify-between bg-[#020618] px-4 py-4 md:px-8 lg:px-16 xl:px-10">
+    <section className="w-full border border-white/10 sticky top-0 z-50 bg-[#020618]">
+      <div className=" max-w-7xl mx-auto flex items-center justify-between bg-[#020618] px-4 py-2 md:px-8 lg:px-16 xl:px-10">
 
         {/* Logo */}
-        <Image src="/logo.png" alt="logo" width={100} height={100} className=" h-20 w-30 object-cover" />
+        <Image src="/1.png" alt="logo" width={100} height={100} className=" h-18 w-auto object-cover" />
 
         {/* Desktop Menu */}
         <nav className="relative hidden md:flex items-center px-1 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35)]">

@@ -7,6 +7,7 @@ import CTA from "./compoents/CTA";
 import Testimonials from "./compoents/Testimonial";
 import Faq from "./compoents/Faq";
 import WhyChooseAndProcess from "./compoents/WhyChooseAndProcess";
+import CitySection from "./compoents/CitySection";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
       <Testimonials />
       <Faq />
       <CTA />
-
+      <CitySection />
     </>
   );
 }

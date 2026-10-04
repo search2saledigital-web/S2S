@@ -48,7 +48,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 sm:col-span-2 lg:col-span-2">
             <div className="flex items-center gap-2">
-              <Image src="/logo.png" alt="logo" width={100} height={100} className=" h-20 w-30 object-cover" />
+              <Image src="/1.png" alt="logo" width={100} height={100} className=" h-20 w-30 object-cover" />
 
             </div>
 
@@ -153,7 +153,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row">
           <p>© 2026 Search2sale Digital. All Rights Reserved.</p>
 
           {/* <div className="flex flex-wrap items-center justify-center gap-4">

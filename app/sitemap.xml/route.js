@@ -1,5 +1,6 @@
 import connectDB from "@/lib/mongodb";
 import Blog from "@/model/Blog";
+import { locations } from "../../data";
 
 const BASE_URL = "https://search2saledigital.com";
 
@@ -16,6 +17,7 @@ const STATIC_PATHS = [
   "/services/seo",
   "/services/social-media-marketing",
   "/services/web-dev",
+  ...locations.map(({ href }) => href),
 ];
 
 export const runtime = "nodejs";
