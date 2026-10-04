@@ -32,7 +32,7 @@ const footerLinks = {
 const socialLinks = [
   { icon: FaFacebookF, href: "https://www.facebook.com/share/p/1QFuga7b4j/", label: "Facebook" },
   // { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
-  { icon: FaInstagram, href: "https://www.instagram.com/search2saledigital2026?stkn=cG50aTJ5bHI4ZHVi", label: "Instagram" },
+  { icon: FaInstagram, href: "https://www.instagram.com/search2saledigital", label: "Instagram" },
   // { icon: FaYoutube, href: "#", label: "YouTube" },
 ];
 
