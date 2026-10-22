@@ -1,5 +1,35 @@
 @import "tailwindcss";
 
+@keyframes stickyContactPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(34 197 94 / 35%);
+  }
+
+  60% {
+    box-shadow: 0 0 0 8px rgb(34 197 94 / 0%);
+  }
+}
+
+@keyframes stickyContactCallPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(220 38 38 / 35%);
+  }
+
+  60% {
+    box-shadow: 0 0 0 8px rgb(220 38 38 / 0%);
+  }
+}
+
+.sticky-contact-whatsapp {
+  animation: stickyContactPulse 2.4s ease-out infinite;
+}
+
+.sticky-contact-call {
+  animation: stickyContactCallPulse 2.4s ease-out infinite;
+}
+
 @keyframes locationFadeUp {
   from {
     opacity: 0;
@@ -92,6 +122,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .sticky-contact-whatsapp,
+  .sticky-contact-call {
+    animation: none;
+  }
+
   .location-reveal,
   .location-hero-item,
   .location-hero-card,

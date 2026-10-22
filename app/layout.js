@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./compoents/Navbar";
 import Footer from "./compoents/Footer";
+import StickyContactButtons from "./compoents/StickyContactButtons";
 import Script from "next/script";
 import { Toaster } from "react-hot-toast";
 
@@ -99,7 +100,9 @@ export default function RootLayout({ children }) {
             title="Google Tag Manager"
           />
         </noscript>
-        {children}</body>
+        {children}
+        <StickyContactButtons />
+      </body>
       <Footer />
       <Toaster
         position="top-right"
