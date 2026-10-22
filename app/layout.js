@@ -19,6 +19,9 @@ export const metadata = {
   title: "Best Digital Marketing Agency in Delhi | Search2Sale Digital",
   description:
     "Search2Sale Digital is a leading digital marketing agency in Delhi offering SEO, Google Ads, Meta Ads, social media marketing, website development and lead generation services",
+  verification: {
+    google: "gIWbmBEfVL2kCvqV5psrwa1HKr25FkLTheDGWTmMDYo",
+  },
 };
 
 export default function RootLayout({ children }) {
